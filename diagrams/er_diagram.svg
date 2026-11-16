@@ -1,0 +1,290 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1720" height="1000" viewBox="0 0 1720 1000" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="many" viewBox="0 0 14 14" refX="13" refY="7" markerWidth="14" markerHeight="14" orient="auto-start-reverse"><path d="M13 7 L1 1 M13 7 L1 13 M13 7 L1 7" stroke="#334155" stroke-width="1.4" fill="none"/></marker><marker id="one" viewBox="0 0 14 14" refX="13" refY="7" markerWidth="14" markerHeight="14" orient="auto-start-reverse"><path d="M9 1 L9 13 M5 1 L5 13" stroke="#334155" stroke-width="1.4" fill="none"/></marker><marker id="zeroone" viewBox="0 0 18 14" refX="17" refY="7" markerWidth="18" markerHeight="14" orient="auto-start-reverse"><circle cx="5" cy="7" r="3.5" stroke="#334155" stroke-width="1.4" fill="#fff"/><path d="M13 1 L13 13" stroke="#334155" stroke-width="1.4"/></marker></defs>
+<rect width="1720" height="1000" fill="#ffffff"/>
+<text x="40" y="36" font-size="22" font-weight="700" fill="#0f172a">OLX Buy &amp; Sell — ER diagram (schema olx)</text>
+<text x="560" y="36" font-size="13" fill="#475569">PK primary key · FK foreign key · UQ unique · UQ1 = composite UNIQUE · crow's foot = many · || = exactly one · o| = zero or one</text>
+<path d="M290 105.5 H325.0 V189.5 H360" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="329.0" y="147.5" font-size="11" fill="#7c2d12">1:N lives in</text>
+<path d="M290 105.5 H320 V294.5 H760" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="324" y="200.0" font-size="11" fill="#7c2d12">1:N located in</text>
+<path d="M660 105.5 H710.0 V126.5 H760" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="714.0" y="116.0" font-size="11" fill="#7c2d12">1:N sells</text>
+<path d="M1240 105.5 H1165.0 V147.5 H1090" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="1169.0" y="126.5" font-size="11" fill="#7c2d12">1:N</text>
+<path d="M1240 275.5 H1165.0 V420.5 H1090" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="1169.0" y="348.0" font-size="11" fill="#7c2d12">0..1:N boosted by</text>
+<path d="M1090 105.5 H1180 V486.5 H1240" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="1184" y="296.0" font-size="11" fill="#7c2d12">1:N</text>
+<path d="M1090 105.5 H1200 V726.5 H1240" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="1204" y="416.0" font-size="11" fill="#7c2d12">1:N</text>
+<path d="M360 105.5 H340 V465.5 H360" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="344" y="285.5" font-size="11" fill="#7c2d12">1:N</text>
+<path d="M760 105.5 H720 V486.5 H660" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="724" y="296.0" font-size="11" fill="#7c2d12">1:N  (favourites = M:N users–listings)</text>
+<path d="M760 105.5 H740 V646.5 H760" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="744" y="376.0" font-size="11" fill="#7c2d12">1:N</text>
+<path d="M1090 625.5 H1120 V836.5 H1090" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="1124" y="731.0" font-size="11" fill="#7c2d12">1:N</text>
+<path d="M760 105.5 H700 V748.5 H660" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="704" y="427.0" font-size="11" fill="#7c2d12">1:N rated</text>
+<path d="M360 105.5 H325 V706.5 H360" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="329" y="406.0" font-size="11" fill="#7c2d12">1:N seller</text>
+<path d="M360 105.5 H310 V727.5 H360" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="314" y="416.5" font-size="11" fill="#7c2d12">1:N rater</text>
+<path d="M660 105.5 H690 V667.5 H760" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="694" y="386.5" font-size="11" fill="#7c2d12">1:N buyer</text>
+<path d="M660 105.5 H690 V857.5 H760" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="694" y="481.5" font-size="11" fill="#7c2d12">1:N sender</text>
+<path d="M360 105.5 H295 V950 H1590 V507.5 H1540" fill="none" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 3" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="1000" y="946" font-size="11" fill="#7c2d12">1:N buyer (users)</text>
+<path d="M360 105.5 H295 V970 H1590 V747.5 H1540" fill="none" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="5 3" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="1000" y="966" font-size="11" fill="#7c2d12">1:N reporter (users)</text>
+<path d="M1540 105.5 H1580 V147.5 H1540" fill="none" stroke="#334155" stroke-width="1.5" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="1584" y="130.5" font-size="11" fill="#7c2d12">1:N parent</text>
+<rect x="40" y="60" width="250" height="101" rx="6" fill="#f8fafc" stroke="#1e293b" stroke-width="1.5"/>
+<rect x="40" y="60" width="250" height="28" rx="6" fill="#1e3a8a"/>
+<text x="50" y="79" font-size="14" font-weight="700" fill="#ffffff">cities</text>
+<text x="48" y="106.5" font-size="10" font-weight="700" fill="#b45309">PK</text>
+<text x="90" y="106.5" font-size="12" font-weight="700" fill="#0f172a">city_id</text>
+<text x="282" y="106.5" font-size="11" fill="#64748b" text-anchor="end">smallint</text>
+<text x="48" y="127.5" font-size="10" font-weight="700" fill="#047857">UQ</text>
+<text x="90" y="127.5" font-size="12" font-weight="400" fill="#0f172a">city_name</text>
+<text x="282" y="127.5" font-size="11" fill="#64748b" text-anchor="end">varchar(50)</text>
+<text x="48" y="148.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="90" y="148.5" font-size="12" font-weight="400" fill="#0f172a">state</text>
+<text x="282" y="148.5" font-size="11" fill="#64748b" text-anchor="end">varchar(50)</text>
+<rect x="360" y="60" width="300" height="206" rx="6" fill="#f8fafc" stroke="#1e293b" stroke-width="1.5"/>
+<rect x="360" y="60" width="300" height="28" rx="6" fill="#1e3a8a"/>
+<text x="370" y="79" font-size="14" font-weight="700" fill="#ffffff">users</text>
+<text x="368" y="106.5" font-size="10" font-weight="700" fill="#b45309">PK</text>
+<text x="410" y="106.5" font-size="12" font-weight="700" fill="#0f172a">user_id</text>
+<text x="652" y="106.5" font-size="11" fill="#64748b" text-anchor="end">integer</text>
+<text x="368" y="127.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="410" y="127.5" font-size="12" font-weight="400" fill="#0f172a">full_name</text>
+<text x="652" y="127.5" font-size="11" fill="#64748b" text-anchor="end">varchar(100)</text>
+<text x="368" y="148.5" font-size="10" font-weight="700" fill="#047857">UQ</text>
+<text x="410" y="148.5" font-size="12" font-weight="400" fill="#0f172a">phone</text>
+<text x="652" y="148.5" font-size="11" fill="#64748b" text-anchor="end">varchar(10)</text>
+<text x="368" y="169.5" font-size="10" font-weight="700" fill="#047857">UQ</text>
+<text x="410" y="169.5" font-size="12" font-weight="400" fill="#0f172a">email</text>
+<text x="652" y="169.5" font-size="11" fill="#64748b" text-anchor="end">varchar(255) NULL</text>
+<text x="368" y="190.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="410" y="190.5" font-size="12" font-weight="400" fill="#0f172a">city_id</text>
+<text x="652" y="190.5" font-size="11" fill="#64748b" text-anchor="end">smallint</text>
+<text x="368" y="211.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="410" y="211.5" font-size="12" font-weight="400" fill="#0f172a">phone_verified</text>
+<text x="652" y="211.5" font-size="11" fill="#64748b" text-anchor="end">boolean</text>
+<text x="368" y="232.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="410" y="232.5" font-size="12" font-weight="400" fill="#0f172a">is_banned</text>
+<text x="652" y="232.5" font-size="11" fill="#64748b" text-anchor="end">boolean</text>
+<text x="368" y="253.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="410" y="253.5" font-size="12" font-weight="400" fill="#0f172a">joined_at</text>
+<text x="652" y="253.5" font-size="11" fill="#64748b" text-anchor="end">timestamptz</text>
+<rect x="760" y="60" width="330" height="458" rx="6" fill="#f8fafc" stroke="#1e293b" stroke-width="1.5"/>
+<rect x="760" y="60" width="330" height="28" rx="6" fill="#1e3a8a"/>
+<text x="770" y="79" font-size="14" font-weight="700" fill="#ffffff">listings</text>
+<text x="768" y="106.5" font-size="10" font-weight="700" fill="#b45309">PK</text>
+<text x="810" y="106.5" font-size="12" font-weight="700" fill="#0f172a">listing_id</text>
+<text x="1082" y="106.5" font-size="11" fill="#64748b" text-anchor="end">integer</text>
+<text x="768" y="127.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="810" y="127.5" font-size="12" font-weight="400" fill="#0f172a">seller_id</text>
+<text x="1082" y="127.5" font-size="11" fill="#64748b" text-anchor="end">integer</text>
+<text x="768" y="148.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="810" y="148.5" font-size="12" font-weight="400" fill="#0f172a">category_id</text>
+<text x="1082" y="148.5" font-size="11" fill="#64748b" text-anchor="end">smallint</text>
+<text x="768" y="169.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="169.5" font-size="12" font-weight="400" fill="#0f172a">title</text>
+<text x="1082" y="169.5" font-size="11" fill="#64748b" text-anchor="end">varchar(150)</text>
+<text x="768" y="190.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="190.5" font-size="12" font-weight="400" fill="#0f172a">description</text>
+<text x="1082" y="190.5" font-size="11" fill="#64748b" text-anchor="end">text NULL</text>
+<text x="768" y="211.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="211.5" font-size="12" font-weight="400" fill="#0f172a">price</text>
+<text x="1082" y="211.5" font-size="11" fill="#64748b" text-anchor="end">numeric(12,2)</text>
+<text x="768" y="232.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="232.5" font-size="12" font-weight="400" fill="#0f172a">is_negotiable</text>
+<text x="1082" y="232.5" font-size="11" fill="#64748b" text-anchor="end">boolean</text>
+<text x="768" y="253.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="253.5" font-size="12" font-weight="400" fill="#0f172a">item_condition</text>
+<text x="1082" y="253.5" font-size="11" fill="#64748b" text-anchor="end">varchar(10)</text>
+<text x="768" y="274.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="274.5" font-size="12" font-weight="400" fill="#0f172a">attributes</text>
+<text x="1082" y="274.5" font-size="11" fill="#64748b" text-anchor="end">jsonb</text>
+<text x="768" y="295.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="810" y="295.5" font-size="12" font-weight="400" fill="#0f172a">city_id</text>
+<text x="1082" y="295.5" font-size="11" fill="#64748b" text-anchor="end">smallint</text>
+<text x="768" y="316.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="316.5" font-size="12" font-weight="400" fill="#0f172a">locality</text>
+<text x="1082" y="316.5" font-size="11" fill="#64748b" text-anchor="end">varchar(50)</text>
+<text x="768" y="337.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="337.5" font-size="12" font-weight="400" fill="#0f172a">latitude</text>
+<text x="1082" y="337.5" font-size="11" fill="#64748b" text-anchor="end">numeric(9,6)</text>
+<text x="768" y="358.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="358.5" font-size="12" font-weight="400" fill="#0f172a">longitude</text>
+<text x="1082" y="358.5" font-size="11" fill="#64748b" text-anchor="end">numeric(9,6)</text>
+<text x="768" y="379.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="379.5" font-size="12" font-weight="400" fill="#0f172a">image_count</text>
+<text x="1082" y="379.5" font-size="11" fill="#64748b" text-anchor="end">smallint</text>
+<text x="768" y="400.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="400.5" font-size="12" font-weight="400" fill="#0f172a">view_count</text>
+<text x="1082" y="400.5" font-size="11" fill="#64748b" text-anchor="end">integer</text>
+<text x="768" y="421.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="810" y="421.5" font-size="12" font-weight="400" fill="#0f172a">boost_package_id</text>
+<text x="1082" y="421.5" font-size="11" fill="#64748b" text-anchor="end">smallint NULL</text>
+<text x="768" y="442.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="442.5" font-size="12" font-weight="400" fill="#0f172a">status</text>
+<text x="1082" y="442.5" font-size="11" fill="#64748b" text-anchor="end">varchar(10)</text>
+<text x="768" y="463.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="463.5" font-size="12" font-weight="400" fill="#0f172a">posted_at</text>
+<text x="1082" y="463.5" font-size="11" fill="#64748b" text-anchor="end">timestamptz</text>
+<text x="768" y="484.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="484.5" font-size="12" font-weight="400" fill="#0f172a">expires_at</text>
+<text x="1082" y="484.5" font-size="11" fill="#64748b" text-anchor="end">timestamptz</text>
+<text x="768" y="505.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="505.5" font-size="12" font-weight="400" fill="#0f172a">sold_at</text>
+<text x="1082" y="505.5" font-size="11" fill="#64748b" text-anchor="end">timestamptz NULL</text>
+<rect x="1240" y="60" width="300" height="101" rx="6" fill="#f8fafc" stroke="#1e293b" stroke-width="1.5"/>
+<rect x="1240" y="60" width="300" height="28" rx="6" fill="#1e3a8a"/>
+<text x="1250" y="79" font-size="14" font-weight="700" fill="#ffffff">categories</text>
+<text x="1248" y="106.5" font-size="10" font-weight="700" fill="#b45309">PK</text>
+<text x="1290" y="106.5" font-size="12" font-weight="700" fill="#0f172a">category_id</text>
+<text x="1532" y="106.5" font-size="11" fill="#64748b" text-anchor="end">smallint</text>
+<text x="1248" y="127.5" font-size="10" font-weight="700" fill="#047857">UQ</text>
+<text x="1290" y="127.5" font-size="12" font-weight="400" fill="#0f172a">category_name</text>
+<text x="1532" y="127.5" font-size="11" fill="#64748b" text-anchor="end">varchar(50)</text>
+<text x="1248" y="148.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="1290" y="148.5" font-size="12" font-weight="400" fill="#0f172a">parent_id</text>
+<text x="1532" y="148.5" font-size="11" fill="#64748b" text-anchor="end">smallint NULL</text>
+<rect x="1240" y="230" width="300" height="122" rx="6" fill="#f8fafc" stroke="#1e293b" stroke-width="1.5"/>
+<rect x="1240" y="230" width="300" height="28" rx="6" fill="#1e3a8a"/>
+<text x="1250" y="249" font-size="14" font-weight="700" fill="#ffffff">boost_packages</text>
+<text x="1248" y="276.5" font-size="10" font-weight="700" fill="#b45309">PK</text>
+<text x="1290" y="276.5" font-size="12" font-weight="700" fill="#0f172a">package_id</text>
+<text x="1532" y="276.5" font-size="11" fill="#64748b" text-anchor="end">smallint</text>
+<text x="1248" y="297.5" font-size="10" font-weight="700" fill="#047857">UQ</text>
+<text x="1290" y="297.5" font-size="12" font-weight="400" fill="#0f172a">package_name</text>
+<text x="1532" y="297.5" font-size="11" fill="#64748b" text-anchor="end">varchar(50)</text>
+<text x="1248" y="318.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="1290" y="318.5" font-size="12" font-weight="400" fill="#0f172a">price</text>
+<text x="1532" y="318.5" font-size="11" fill="#64748b" text-anchor="end">numeric(8,2)</text>
+<text x="1248" y="339.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="1290" y="339.5" font-size="12" font-weight="400" fill="#0f172a">duration_days</text>
+<text x="1532" y="339.5" font-size="11" fill="#64748b" text-anchor="end">smallint</text>
+<rect x="1240" y="420" width="300" height="185" rx="6" fill="#f8fafc" stroke="#1e293b" stroke-width="1.5"/>
+<rect x="1240" y="420" width="300" height="28" rx="6" fill="#1e3a8a"/>
+<text x="1250" y="439" font-size="14" font-weight="700" fill="#ffffff">offers</text>
+<text x="1248" y="466.5" font-size="10" font-weight="700" fill="#b45309">PK</text>
+<text x="1290" y="466.5" font-size="12" font-weight="700" fill="#0f172a">offer_id</text>
+<text x="1532" y="466.5" font-size="11" fill="#64748b" text-anchor="end">integer</text>
+<text x="1248" y="487.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="1290" y="487.5" font-size="12" font-weight="400" fill="#0f172a">listing_id</text>
+<text x="1532" y="487.5" font-size="11" fill="#64748b" text-anchor="end">integer</text>
+<text x="1248" y="508.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="1290" y="508.5" font-size="12" font-weight="400" fill="#0f172a">buyer_id</text>
+<text x="1532" y="508.5" font-size="11" fill="#64748b" text-anchor="end">integer</text>
+<text x="1248" y="529.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="1290" y="529.5" font-size="12" font-weight="400" fill="#0f172a">offer_price</text>
+<text x="1532" y="529.5" font-size="11" fill="#64748b" text-anchor="end">numeric(12,2)</text>
+<text x="1248" y="550.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="1290" y="550.5" font-size="12" font-weight="400" fill="#0f172a">status</text>
+<text x="1532" y="550.5" font-size="11" fill="#64748b" text-anchor="end">varchar(10)</text>
+<text x="1248" y="571.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="1290" y="571.5" font-size="12" font-weight="400" fill="#0f172a">created_at</text>
+<text x="1532" y="571.5" font-size="11" fill="#64748b" text-anchor="end">timestamptz</text>
+<text x="1248" y="592.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="1290" y="592.5" font-size="12" font-weight="400" fill="#0f172a">responded_at</text>
+<text x="1532" y="592.5" font-size="11" fill="#64748b" text-anchor="end">timestamptz NULL</text>
+<rect x="1240" y="660" width="300" height="164" rx="6" fill="#f8fafc" stroke="#1e293b" stroke-width="1.5"/>
+<rect x="1240" y="660" width="300" height="28" rx="6" fill="#1e3a8a"/>
+<text x="1250" y="679" font-size="14" font-weight="700" fill="#ffffff">reports</text>
+<text x="1248" y="706.5" font-size="10" font-weight="700" fill="#b45309">PK</text>
+<text x="1290" y="706.5" font-size="12" font-weight="700" fill="#0f172a">report_id</text>
+<text x="1532" y="706.5" font-size="11" fill="#64748b" text-anchor="end">integer</text>
+<text x="1248" y="727.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="1290" y="727.5" font-size="12" font-weight="400" fill="#0f172a">listing_id</text>
+<text x="1532" y="727.5" font-size="11" fill="#64748b" text-anchor="end">integer  (UQ1)</text>
+<text x="1248" y="748.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="1290" y="748.5" font-size="12" font-weight="400" fill="#0f172a">reporter_id</text>
+<text x="1532" y="748.5" font-size="11" fill="#64748b" text-anchor="end">integer  (UQ1)</text>
+<text x="1248" y="769.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="1290" y="769.5" font-size="12" font-weight="400" fill="#0f172a">reason</text>
+<text x="1532" y="769.5" font-size="11" fill="#64748b" text-anchor="end">varchar(20)</text>
+<text x="1248" y="790.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="1290" y="790.5" font-size="12" font-weight="400" fill="#0f172a">created_at</text>
+<text x="1532" y="790.5" font-size="11" fill="#64748b" text-anchor="end">timestamptz</text>
+<text x="1248" y="811.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="1290" y="811.5" font-size="12" font-weight="400" fill="#0f172a">status</text>
+<text x="1532" y="811.5" font-size="11" fill="#64748b" text-anchor="end">varchar(10)</text>
+<rect x="360" y="420" width="300" height="101" rx="6" fill="#f8fafc" stroke="#1e293b" stroke-width="1.5"/>
+<rect x="360" y="420" width="300" height="28" rx="6" fill="#1e3a8a"/>
+<text x="370" y="439" font-size="14" font-weight="700" fill="#ffffff">favourites</text>
+<text x="368" y="466.5" font-size="10" font-weight="700" fill="#b45309">PK,FK</text>
+<text x="410" y="466.5" font-size="12" font-weight="700" fill="#0f172a">user_id</text>
+<text x="652" y="466.5" font-size="11" fill="#64748b" text-anchor="end">integer</text>
+<text x="368" y="487.5" font-size="10" font-weight="700" fill="#b45309">PK,FK</text>
+<text x="410" y="487.5" font-size="12" font-weight="700" fill="#0f172a">listing_id</text>
+<text x="652" y="487.5" font-size="11" fill="#64748b" text-anchor="end">integer</text>
+<text x="368" y="508.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="410" y="508.5" font-size="12" font-weight="400" fill="#0f172a">saved_at</text>
+<text x="652" y="508.5" font-size="11" fill="#64748b" text-anchor="end">timestamptz</text>
+<rect x="360" y="640" width="300" height="185" rx="6" fill="#f8fafc" stroke="#1e293b" stroke-width="1.5"/>
+<rect x="360" y="640" width="300" height="28" rx="6" fill="#1e3a8a"/>
+<text x="370" y="659" font-size="14" font-weight="700" fill="#ffffff">seller_ratings</text>
+<text x="368" y="686.5" font-size="10" font-weight="700" fill="#b45309">PK</text>
+<text x="410" y="686.5" font-size="12" font-weight="700" fill="#0f172a">rating_id</text>
+<text x="652" y="686.5" font-size="11" fill="#64748b" text-anchor="end">integer</text>
+<text x="368" y="707.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="410" y="707.5" font-size="12" font-weight="400" fill="#0f172a">seller_id</text>
+<text x="652" y="707.5" font-size="11" fill="#64748b" text-anchor="end">integer</text>
+<text x="368" y="728.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="410" y="728.5" font-size="12" font-weight="400" fill="#0f172a">rater_id</text>
+<text x="652" y="728.5" font-size="11" fill="#64748b" text-anchor="end">integer  (UQ1)</text>
+<text x="368" y="749.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="410" y="749.5" font-size="12" font-weight="400" fill="#0f172a">listing_id</text>
+<text x="652" y="749.5" font-size="11" fill="#64748b" text-anchor="end">integer  (UQ1)</text>
+<text x="368" y="770.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="410" y="770.5" font-size="12" font-weight="400" fill="#0f172a">stars</text>
+<text x="652" y="770.5" font-size="11" fill="#64748b" text-anchor="end">smallint</text>
+<text x="368" y="791.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="410" y="791.5" font-size="12" font-weight="400" fill="#0f172a">comment</text>
+<text x="652" y="791.5" font-size="11" fill="#64748b" text-anchor="end">varchar(500) NULL</text>
+<text x="368" y="812.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="410" y="812.5" font-size="12" font-weight="400" fill="#0f172a">created_at</text>
+<text x="652" y="812.5" font-size="11" fill="#64748b" text-anchor="end">timestamptz</text>
+<rect x="760" y="580" width="330" height="122" rx="6" fill="#f8fafc" stroke="#1e293b" stroke-width="1.5"/>
+<rect x="760" y="580" width="330" height="28" rx="6" fill="#1e3a8a"/>
+<text x="770" y="599" font-size="14" font-weight="700" fill="#ffffff">chat_threads</text>
+<text x="768" y="626.5" font-size="10" font-weight="700" fill="#b45309">PK</text>
+<text x="810" y="626.5" font-size="12" font-weight="700" fill="#0f172a">thread_id</text>
+<text x="1082" y="626.5" font-size="11" fill="#64748b" text-anchor="end">integer</text>
+<text x="768" y="647.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="810" y="647.5" font-size="12" font-weight="400" fill="#0f172a">listing_id</text>
+<text x="1082" y="647.5" font-size="11" fill="#64748b" text-anchor="end">integer  (UQ1)</text>
+<text x="768" y="668.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="810" y="668.5" font-size="12" font-weight="400" fill="#0f172a">buyer_id</text>
+<text x="1082" y="668.5" font-size="11" fill="#64748b" text-anchor="end">integer  (UQ1)</text>
+<text x="768" y="689.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="689.5" font-size="12" font-weight="400" fill="#0f172a">created_at</text>
+<text x="1082" y="689.5" font-size="11" fill="#64748b" text-anchor="end">timestamptz</text>
+<rect x="760" y="770" width="330" height="164" rx="6" fill="#f8fafc" stroke="#1e293b" stroke-width="1.5"/>
+<rect x="760" y="770" width="330" height="28" rx="6" fill="#1e3a8a"/>
+<text x="770" y="789" font-size="14" font-weight="700" fill="#ffffff">chat_messages</text>
+<text x="768" y="816.5" font-size="10" font-weight="700" fill="#b45309">PK</text>
+<text x="810" y="816.5" font-size="12" font-weight="700" fill="#0f172a">message_id</text>
+<text x="1082" y="816.5" font-size="11" fill="#64748b" text-anchor="end">integer</text>
+<text x="768" y="837.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="810" y="837.5" font-size="12" font-weight="400" fill="#0f172a">thread_id</text>
+<text x="1082" y="837.5" font-size="11" fill="#64748b" text-anchor="end">integer</text>
+<text x="768" y="858.5" font-size="10" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="810" y="858.5" font-size="12" font-weight="400" fill="#0f172a">sender_id</text>
+<text x="1082" y="858.5" font-size="11" fill="#64748b" text-anchor="end">integer</text>
+<text x="768" y="879.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="879.5" font-size="12" font-weight="400" fill="#0f172a">body</text>
+<text x="1082" y="879.5" font-size="11" fill="#64748b" text-anchor="end">text</text>
+<text x="768" y="900.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="900.5" font-size="12" font-weight="400" fill="#0f172a">sent_at</text>
+<text x="1082" y="900.5" font-size="11" fill="#64748b" text-anchor="end">timestamptz</text>
+<text x="768" y="921.5" font-size="10" font-weight="700" fill="#334155"></text>
+<text x="810" y="921.5" font-size="12" font-weight="400" fill="#0f172a">is_read</text>
+<text x="1082" y="921.5" font-size="11" fill="#64748b" text-anchor="end">boolean</text>
+</svg>
