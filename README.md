@@ -22,10 +22,10 @@
 
 | Role | Name | Enrollment No. | GitHub Username |
 |------|------|----------------|-----------------|
-| Group Lead | Madhav Gupta | | [Madhav-GPT](https://github.com/Madhav-GPT) |
-| Member 2 | Kushagar Garg | | [Dreamstick9](https://github.com/Dreamstick9) |
-| Member 3 | Kabir Vashisht | | [kabirvashisht4-glitch](https://github.com/kabirvashisht4-glitch) |
-| Member 4 | Ritwik G | | [boomelio](https://github.com/boomelio) |
+| Group Lead | Madhav Gupta | 2501010252 | [Madhav-GPT](https://github.com/Madhav-GPT) |
+| Member 2 | Kushagar Garg | 2501010650 | [Dreamstick9](https://github.com/Dreamstick9) |
+| Member 3 | Kabir Vashisht | 2501010208 | [kabirvashisht4-glitch](https://github.com/kabirvashisht4-glitch) |
+| Member 4 | Ritwik G | 2501010380 | [boomelio](https://github.com/boomelio) |
 
 **Team No.:** T0118 · **Section:** C · **Repository URL:** https://github.com/Madhav-GPT/DE_Kreg_2026
 
