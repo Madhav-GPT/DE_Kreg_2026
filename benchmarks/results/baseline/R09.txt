@@ -1,0 +1,51 @@
+=== R09 run 1 ===
+Sort  (cost=6538.16..6538.16 rows=1 width=58) (actual time=5.540..6.244 rows=5.00 loops=1)
+  Sort Key: (round((('6371'::double precision * acos(LEAST('1'::double precision, ((('0.9744814473612341'::double precision * cos(radians((latitude)::double precision))) * cos((radians((longitude)::double precision) - '1.354281251767992'::double precision))) + ('0.2244680573016001'::double precision * sin(radians((latitude)::double precision))))))))::numeric, 2))
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4291
+  ->  Gather  (cost=1000.00..6538.15 rows=1 width=58) (actual time=2.887..6.229 rows=5.00 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=4288
+        ->  Parallel Seq Scan on listings  (cost=0.00..5538.05 rows=1 width=58) (actual time=1.934..4.324 rows=1.67 loops=3)
+              Filter: ((latitude >= 12.9536) AND (latitude <= 12.9896) AND (longitude >= 77.5761) AND (longitude <= 77.6131) AND (category_id = 9) AND ((status)::text = 'ACTIVE'::text))
+              Rows Removed by Filter: 39998
+              Buffers: shared hit=4288
+Planning:
+  Buffers: shared hit=137
+Planning Time: 0.219 ms
+Execution Time: 6.266 ms
+=== R09 run 2 ===
+Sort  (cost=6538.16..6538.16 rows=1 width=58) (actual time=5.411..6.093 rows=5.00 loops=1)
+  Sort Key: (round((('6371'::double precision * acos(LEAST('1'::double precision, ((('0.9744814473612341'::double precision * cos(radians((latitude)::double precision))) * cos((radians((longitude)::double precision) - '1.354281251767992'::double precision))) + ('0.2244680573016001'::double precision * sin(radians((latitude)::double precision))))))))::numeric, 2))
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4291
+  ->  Gather  (cost=1000.00..6538.15 rows=1 width=58) (actual time=2.718..6.084 rows=5.00 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=4288
+        ->  Parallel Seq Scan on listings  (cost=0.00..5538.05 rows=1 width=58) (actual time=2.578..4.192 rows=1.67 loops=3)
+              Filter: ((latitude >= 12.9536) AND (latitude <= 12.9896) AND (longitude >= 77.5761) AND (longitude <= 77.6131) AND (category_id = 9) AND ((status)::text = 'ACTIVE'::text))
+              Rows Removed by Filter: 39998
+              Buffers: shared hit=4288
+Planning:
+  Buffers: shared hit=137
+Planning Time: 0.198 ms
+Execution Time: 6.118 ms
+=== R09 run 3 ===
+Sort  (cost=6538.16..6538.16 rows=1 width=58) (actual time=5.465..6.266 rows=5.00 loops=1)
+  Sort Key: (round((('6371'::double precision * acos(LEAST('1'::double precision, ((('0.9744814473612341'::double precision * cos(radians((latitude)::double precision))) * cos((radians((longitude)::double precision) - '1.354281251767992'::double precision))) + ('0.2244680573016001'::double precision * sin(radians((latitude)::double precision))))))))::numeric, 2))
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4291
+  ->  Gather  (cost=1000.00..6538.15 rows=1 width=58) (actual time=2.760..6.256 rows=5.00 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=4288
+        ->  Parallel Seq Scan on listings  (cost=0.00..5538.05 rows=1 width=58) (actual time=2.589..4.208 rows=1.67 loops=3)
+              Filter: ((latitude >= 12.9536) AND (latitude <= 12.9896) AND (longitude >= 77.5761) AND (longitude <= 77.6131) AND (category_id = 9) AND ((status)::text = 'ACTIVE'::text))
+              Rows Removed by Filter: 39998
+              Buffers: shared hit=4288
+Planning:
+  Buffers: shared hit=137
+Planning Time: 0.198 ms
+Execution Time: 6.287 ms

@@ -1,0 +1,66 @@
+=== W05 run 1 ===
+Update on offers  (cost=491.16..982.31 rows=0 width=0) (actual time=1.084..1.084 rows=0.00 loops=1)
+  Buffers: shared hit=441
+  InitPlan 1
+    ->  Limit  (cost=491.15..491.16 rows=1 width=10) (actual time=0.481..0.482 rows=1.00 loops=1)
+          Buffers: shared hit=198
+          ->  Sort  (cost=491.15..491.16 rows=1 width=10) (actual time=0.481..0.481 rows=1.00 loops=1)
+                Sort Key: offers_1.offer_price DESC, offers_1.offer_id
+                Sort Method: top-N heapsort  Memory: 25kB
+                Buffers: shared hit=198
+                ->  Seq Scan on offers offers_1  (cost=0.00..491.14 rows=1 width=10) (actual time=0.050..0.472 rows=3.00 loops=1)
+                      Filter: ((listing_id = 118642) AND ((status)::text = 'PENDING'::text))
+                      Rows Removed by Filter: 19940
+                      Buffers: shared hit=192
+  ->  Seq Scan on offers  (cost=0.00..491.15 rows=1 width=52) (actual time=0.551..0.919 rows=3.00 loops=1)
+        Filter: ((listing_id = 118642) AND ((status)::text = 'PENDING'::text))
+        Rows Removed by Filter: 19940
+        Buffers: shared hit=390
+Planning:
+  Buffers: shared hit=93
+Planning Time: 0.170 ms
+Execution Time: 1.125 ms
+=== W05 run 2 ===
+Update on offers  (cost=491.16..982.31 rows=0 width=0) (actual time=0.999..0.999 rows=0.00 loops=1)
+  Buffers: shared hit=440 dirtied=1
+  InitPlan 1
+    ->  Limit  (cost=491.15..491.16 rows=1 width=10) (actual time=0.482..0.482 rows=1.00 loops=1)
+          Buffers: shared hit=198
+          ->  Sort  (cost=491.15..491.16 rows=1 width=10) (actual time=0.481..0.482 rows=1.00 loops=1)
+                Sort Key: offers_1.offer_price DESC, offers_1.offer_id
+                Sort Method: top-N heapsort  Memory: 25kB
+                Buffers: shared hit=198
+                ->  Seq Scan on offers offers_1  (cost=0.00..491.14 rows=1 width=10) (actual time=0.050..0.472 rows=3.00 loops=1)
+                      Filter: ((listing_id = 118642) AND ((status)::text = 'PENDING'::text))
+                      Rows Removed by Filter: 19940
+                      Buffers: shared hit=192
+  ->  Seq Scan on offers  (cost=0.00..491.15 rows=1 width=52) (actual time=0.553..0.910 rows=3.00 loops=1)
+        Filter: ((listing_id = 118642) AND ((status)::text = 'PENDING'::text))
+        Rows Removed by Filter: 19940
+        Buffers: shared hit=390
+Planning:
+  Buffers: shared hit=93
+Planning Time: 0.169 ms
+Execution Time: 1.038 ms
+=== W05 run 3 ===
+Update on offers  (cost=491.16..982.31 rows=0 width=0) (actual time=1.012..1.012 rows=0.00 loops=1)
+  Buffers: shared hit=440 dirtied=1
+  InitPlan 1
+    ->  Limit  (cost=491.15..491.16 rows=1 width=10) (actual time=0.500..0.500 rows=1.00 loops=1)
+          Buffers: shared hit=198
+          ->  Sort  (cost=491.15..491.16 rows=1 width=10) (actual time=0.500..0.500 rows=1.00 loops=1)
+                Sort Key: offers_1.offer_price DESC, offers_1.offer_id
+                Sort Method: top-N heapsort  Memory: 25kB
+                Buffers: shared hit=198
+                ->  Seq Scan on offers offers_1  (cost=0.00..491.14 rows=1 width=10) (actual time=0.052..0.490 rows=3.00 loops=1)
+                      Filter: ((listing_id = 118642) AND ((status)::text = 'PENDING'::text))
+                      Rows Removed by Filter: 19940
+                      Buffers: shared hit=192
+  ->  Seq Scan on offers  (cost=0.00..491.15 rows=1 width=52) (actual time=0.573..0.924 rows=3.00 loops=1)
+        Filter: ((listing_id = 118642) AND ((status)::text = 'PENDING'::text))
+        Rows Removed by Filter: 19940
+        Buffers: shared hit=390
+Planning:
+  Buffers: shared hit=93
+Planning Time: 0.166 ms
+Execution Time: 1.050 ms

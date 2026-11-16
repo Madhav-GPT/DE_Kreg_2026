@@ -1,0 +1,78 @@
+=== R20 run 1 ===
+WindowAgg  (cost=6298.75..6387.99 rows=600 width=44) (actual time=5.858..6.779 rows=30.00 loops=1)
+  Window: w1 AS (ORDER BY ((listings.posted_at)::date))
+  Storage: Memory  Maximum Storage: 17kB
+  Buffers: shared hit=4364
+  ->  GroupAggregate  (cost=6298.61..6378.99 rows=600 width=12) (actual time=5.832..6.761 rows=30.00 loops=1)
+        Group Key: ((listings.posted_at)::date)
+        Buffers: shared hit=4364
+        ->  Gather Merge  (cost=6298.61..6368.49 rows=600 width=4) (actual time=5.812..6.599 rows=6576.00 loops=1)
+              Workers Planned: 2
+              Workers Launched: 2
+              Buffers: shared hit=4364
+              ->  Sort  (cost=5298.58..5299.21 rows=250 width=4) (actual time=4.540..4.581 rows=2192.00 loops=3)
+                    Sort Key: ((listings.posted_at)::date)
+                    Sort Method: quicksort  Memory: 97kB
+                    Buffers: shared hit=4364
+                    Worker 0:  Sort Method: quicksort  Memory: 97kB
+                    Worker 1:  Sort Method: quicksort  Memory: 97kB
+                    ->  Parallel Seq Scan on listings  (cost=0.00..5288.62 rows=250 width=4) (actual time=1.372..4.462 rows=2192.00 loops=3)
+                          Filter: (((posted_at)::date >= '2026-06-01'::date) AND ((posted_at)::date <= '2026-06-30'::date))
+                          Rows Removed by Filter: 37808
+                          Buffers: shared hit=4288
+Planning:
+  Buffers: shared hit=100
+Planning Time: 0.158 ms
+Execution Time: 7.072 ms
+=== R20 run 2 ===
+WindowAgg  (cost=6298.75..6387.99 rows=600 width=44) (actual time=5.922..6.876 rows=30.00 loops=1)
+  Window: w1 AS (ORDER BY ((listings.posted_at)::date))
+  Storage: Memory  Maximum Storage: 17kB
+  Buffers: shared hit=4364
+  ->  GroupAggregate  (cost=6298.61..6378.99 rows=600 width=12) (actual time=5.898..6.858 rows=30.00 loops=1)
+        Group Key: ((listings.posted_at)::date)
+        Buffers: shared hit=4364
+        ->  Gather Merge  (cost=6298.61..6368.49 rows=600 width=4) (actual time=5.873..6.694 rows=6576.00 loops=1)
+              Workers Planned: 2
+              Workers Launched: 2
+              Buffers: shared hit=4364
+              ->  Sort  (cost=5298.58..5299.21 rows=250 width=4) (actual time=4.600..4.645 rows=2192.00 loops=3)
+                    Sort Key: ((listings.posted_at)::date)
+                    Sort Method: quicksort  Memory: 97kB
+                    Buffers: shared hit=4364
+                    Worker 0:  Sort Method: quicksort  Memory: 97kB
+                    Worker 1:  Sort Method: quicksort  Memory: 97kB
+                    ->  Parallel Seq Scan on listings  (cost=0.00..5288.62 rows=250 width=4) (actual time=1.399..4.523 rows=2192.00 loops=3)
+                          Filter: (((posted_at)::date >= '2026-06-01'::date) AND ((posted_at)::date <= '2026-06-30'::date))
+                          Rows Removed by Filter: 37808
+                          Buffers: shared hit=4288
+Planning:
+  Buffers: shared hit=100
+Planning Time: 0.163 ms
+Execution Time: 6.910 ms
+=== R20 run 3 ===
+WindowAgg  (cost=6298.75..6387.99 rows=600 width=44) (actual time=5.911..6.848 rows=30.00 loops=1)
+  Window: w1 AS (ORDER BY ((listings.posted_at)::date))
+  Storage: Memory  Maximum Storage: 17kB
+  Buffers: shared hit=4364
+  ->  GroupAggregate  (cost=6298.61..6378.99 rows=600 width=12) (actual time=5.887..6.830 rows=30.00 loops=1)
+        Group Key: ((listings.posted_at)::date)
+        Buffers: shared hit=4364
+        ->  Gather Merge  (cost=6298.61..6368.49 rows=600 width=4) (actual time=5.863..6.656 rows=6576.00 loops=1)
+              Workers Planned: 2
+              Workers Launched: 2
+              Buffers: shared hit=4364
+              ->  Sort  (cost=5298.58..5299.21 rows=250 width=4) (actual time=4.557..4.601 rows=2192.00 loops=3)
+                    Sort Key: ((listings.posted_at)::date)
+                    Sort Method: quicksort  Memory: 97kB
+                    Buffers: shared hit=4364
+                    Worker 0:  Sort Method: quicksort  Memory: 97kB
+                    Worker 1:  Sort Method: quicksort  Memory: 97kB
+                    ->  Parallel Seq Scan on listings  (cost=0.00..5288.62 rows=250 width=4) (actual time=1.379..4.472 rows=2192.00 loops=3)
+                          Filter: (((posted_at)::date >= '2026-06-01'::date) AND ((posted_at)::date <= '2026-06-30'::date))
+                          Rows Removed by Filter: 37808
+                          Buffers: shared hit=4288
+Planning:
+  Buffers: shared hit=100
+Planning Time: 0.179 ms
+Execution Time: 6.887 ms
