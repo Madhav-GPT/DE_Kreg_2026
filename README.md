@@ -22,12 +22,14 @@
 
 | Role | Name | Enrollment No. | GitHub Username |
 |------|------|----------------|-----------------|
-| Group Lead | | | |
-| Member 2 | | | |
-| Member 3 | | | |
-| Member 4 | | | |
+| Group Lead | Madhav Gupta | | [Madhav-GPT](https://github.com/Madhav-GPT) |
+| Member 2 | Kushagar Garg | | [Dreamstick9](https://github.com/Dreamstick9) |
+| Member 3 | Kabir Vashisht | | [kabirvashisht4-glitch](https://github.com/kabirvashisht4-glitch) |
+| Member 4 | Ritwik G | | [boomelio](https://github.com/boomelio) |
 
-**Team No.:** ____ · **Section:** ____ · **Repository URL:** ____
+**Team No.:** T0118 · **Section:** C · **Repository URL:** https://github.com/Madhav-GPT/DE_Kreg_2026
+
+**AP project:** Kreg – Self-Hosted Uptime & Synthetic Monitoring Platform ([Dreamstick9/Kreg_AP_2026](https://github.com/Dreamstick9/Kreg_AP_2026)) · **Mentor:** Vishnu
 
 ---
 

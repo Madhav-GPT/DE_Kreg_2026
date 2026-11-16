@@ -1,0 +1,11 @@
+{
+  "team_number": "T0118",
+  "group_lead": { "name": "Madhav Gupta", "enrollment_no": "", "github": "Madhav-GPT" },
+  "members": [
+    { "name": "Kushagar Garg", "enrollment_no": "", "github": "Dreamstick9" },
+    { "name": "Kabir Vashisht", "enrollment_no": "", "github": "kabirvashisht4-glitch" },
+    { "name": "Ritwik G", "enrollment_no": "", "github": "boomelio" }
+  ],
+  "postgres_version": "18.6",
+  "laptop_used_for_benchmarks": "Apple MacBook, M4, 16 GB RAM, macOS"
+}
