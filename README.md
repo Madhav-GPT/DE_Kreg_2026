@@ -31,6 +31,28 @@
 
 **AP project:** Kreg – Self-Hosted Uptime & Synthetic Monitoring Platform ([Dreamstick9/Kreg_AP_2026](https://github.com/Dreamstick9/Kreg_AP_2026)) · **Mentor:** Vishnu
 
+## How to run (our setup)
+
+From the repository root with the PostgreSQL command-line tools available:
+
+```bash
+export PGHOST=127.0.0.1
+export PGPORT=5432
+export PGUSER=postgres
+unzip -q seed_data.zip -d .
+createdb -h 127.0.0.1 -p 5432 -U postgres olx
+psql -h 127.0.0.1 -p 5432 -U postgres -w -d olx -v ON_ERROR_STOP=1 -f sql/01_schema.sql
+psql -h 127.0.0.1 -p 5432 -U postgres -w -d olx -v ON_ERROR_STOP=1 -f sql/02_load_data.sql
+./benchmarks/run_benchmark.sh olx baseline
+```
+
+## Headline numbers (baseline)
+
+- Total execution time (sum of averages): **1541.229 ms**
+- Slowest: **R19 — City report: chats and latest chat time for every active car ad in Bengaluru (1120.872 ms)**
+- Fastest: **R23 — Login with mobile number (0.023 ms)**
+- Queries with `Seq Scan on listings`: **22 of 30**
+- Full table: [docs/03_baseline_timings.md](docs/03_baseline_timings.md)
 ---
 
 ## How this project works
