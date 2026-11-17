@@ -1,0 +1,54 @@
+=== W02 run 1 ===
+Update on listings  (cost=6088.30..6096.32 rows=0 width=0) (actual time=9.035..9.035 rows=0.00 loops=1)
+  Buffers: shared hit=4370
+  InitPlan 1
+    ->  Aggregate  (cost=6088.00..6088.01 rows=1 width=4) (actual time=8.838..8.838 rows=1.00 loops=1)
+          Buffers: shared hit=4288
+          ->  Seq Scan on listings listings_1  (cost=0.00..6088.00 rows=1 width=4) (actual time=1.121..8.834 rows=1.00 loops=1)
+                Filter: ((seller_id = 1042) AND ((status)::text = 'ACTIVE'::text))
+                Rows Removed by Filter: 119999
+                Buffers: shared hit=4288
+  ->  Index Scan using listings_pkey on listings  (cost=0.29..8.31 rows=1 width=52) (actual time=8.847..8.847 rows=1.00 loops=1)
+        Index Cond: (listing_id = (InitPlan 1).col1)
+        Index Searches: 1
+        Buffers: shared hit=4291
+Planning:
+  Buffers: shared hit=88
+Planning Time: 0.197 ms
+Execution Time: 9.384 ms
+=== W02 run 2 ===
+Update on listings  (cost=6088.30..6096.32 rows=0 width=0) (actual time=8.933..8.933 rows=0.00 loops=1)
+  Buffers: shared hit=4372
+  InitPlan 1
+    ->  Aggregate  (cost=6088.00..6088.01 rows=1 width=4) (actual time=8.722..8.722 rows=1.00 loops=1)
+          Buffers: shared hit=4288
+          ->  Seq Scan on listings listings_1  (cost=0.00..6088.00 rows=1 width=4) (actual time=1.058..8.719 rows=1.00 loops=1)
+                Filter: ((seller_id = 1042) AND ((status)::text = 'ACTIVE'::text))
+                Rows Removed by Filter: 119999
+                Buffers: shared hit=4288
+  ->  Index Scan using listings_pkey on listings  (cost=0.29..8.31 rows=1 width=52) (actual time=8.731..8.731 rows=1.00 loops=1)
+        Index Cond: (listing_id = (InitPlan 1).col1)
+        Index Searches: 1
+        Buffers: shared hit=4293
+Planning:
+  Buffers: shared hit=88
+Planning Time: 0.172 ms
+Execution Time: 8.982 ms
+=== W02 run 3 ===
+Update on listings  (cost=6088.30..6096.32 rows=0 width=0) (actual time=8.870..8.871 rows=0.00 loops=1)
+  Buffers: shared hit=4372
+  InitPlan 1
+    ->  Aggregate  (cost=6088.00..6088.01 rows=1 width=4) (actual time=8.680..8.680 rows=1.00 loops=1)
+          Buffers: shared hit=4288
+          ->  Seq Scan on listings listings_1  (cost=0.00..6088.00 rows=1 width=4) (actual time=1.056..8.677 rows=1.00 loops=1)
+                Filter: ((seller_id = 1042) AND ((status)::text = 'ACTIVE'::text))
+                Rows Removed by Filter: 119999
+                Buffers: shared hit=4288
+  ->  Index Scan using listings_pkey on listings  (cost=0.29..8.31 rows=1 width=52) (actual time=8.689..8.689 rows=1.00 loops=1)
+        Index Cond: (listing_id = (InitPlan 1).col1)
+        Index Searches: 1
+        Buffers: shared hit=4293
+Planning:
+  Buffers: shared hit=88
+Planning Time: 0.172 ms
+Execution Time: 8.917 ms
