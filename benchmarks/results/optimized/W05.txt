@@ -1,0 +1,54 @@
+=== W05 run 1 ===
+Update on offers  (cost=8.31..16.33 rows=0 width=0) (actual time=0.505..0.505 rows=0 loops=1)
+  Buffers: shared hit=56 read=1
+  InitPlan 1 (returns $0)
+    ->  Limit  (cost=0.14..8.16 rows=1 width=10) (actual time=0.054..0.054 rows=1 loops=1)
+          Buffers: shared hit=2
+          ->  Index Only Scan using idx_offers_pending_listing_price on offers offers_1  (cost=0.14..8.16 rows=1 width=10) (actual time=0.053..0.053 rows=1 loops=1)
+                Index Cond: (listing_id = 118642)
+                Heap Fetches: 0
+                Buffers: shared hit=2
+  ->  Index Scan using idx_offers_pending_listing_price on offers  (cost=0.14..8.17 rows=1 width=52) (actual time=0.257..0.263 rows=3 loops=1)
+        Index Cond: (listing_id = 118642)
+        Filter: ((status)::text = 'PENDING'::text)
+        Buffers: shared hit=5 read=1
+Planning:
+  Buffers: shared hit=113
+Planning Time: 0.500 ms
+Execution Time: 0.604 ms
+=== W05 run 2 ===
+Update on offers  (cost=8.31..16.33 rows=0 width=0) (actual time=0.460..0.461 rows=0 loops=1)
+  Buffers: shared hit=57 dirtied=1
+  InitPlan 1 (returns $0)
+    ->  Limit  (cost=0.14..8.16 rows=1 width=10) (actual time=0.058..0.058 rows=1 loops=1)
+          Buffers: shared hit=3
+          ->  Index Only Scan using idx_offers_pending_listing_price on offers offers_1  (cost=0.14..8.16 rows=1 width=10) (actual time=0.056..0.057 rows=1 loops=1)
+                Index Cond: (listing_id = 118642)
+                Heap Fetches: 1
+                Buffers: shared hit=3
+  ->  Index Scan using idx_offers_pending_listing_price on offers  (cost=0.14..8.17 rows=1 width=52) (actual time=0.086..0.098 rows=3 loops=1)
+        Index Cond: (listing_id = 118642)
+        Filter: ((status)::text = 'PENDING'::text)
+        Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=113
+Planning Time: 0.570 ms
+Execution Time: 0.594 ms
+=== W05 run 3 ===
+Update on offers  (cost=8.31..16.33 rows=0 width=0) (actual time=0.335..0.336 rows=0 loops=1)
+  Buffers: shared hit=57 dirtied=1
+  InitPlan 1 (returns $0)
+    ->  Limit  (cost=0.14..8.16 rows=1 width=10) (actual time=0.043..0.043 rows=1 loops=1)
+          Buffers: shared hit=3
+          ->  Index Only Scan using idx_offers_pending_listing_price on offers offers_1  (cost=0.14..8.16 rows=1 width=10) (actual time=0.042..0.042 rows=1 loops=1)
+                Index Cond: (listing_id = 118642)
+                Heap Fetches: 1
+                Buffers: shared hit=3
+  ->  Index Scan using idx_offers_pending_listing_price on offers  (cost=0.14..8.17 rows=1 width=52) (actual time=0.065..0.077 rows=3 loops=1)
+        Index Cond: (listing_id = 118642)
+        Filter: ((status)::text = 'PENDING'::text)
+        Buffers: shared hit=7
+Planning:
+  Buffers: shared hit=113
+Planning Time: 0.537 ms
+Execution Time: 0.430 ms

@@ -1,0 +1,126 @@
+=== R06 run 1 ===
+Sort  (cost=81.03..81.04 rows=3 width=49) (actual time=0.335..0.337 rows=13 loops=1)
+  Sort Key: m.sent_at DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=109
+  ->  Nested Loop  (cost=5.02..81.00 rows=3 width=49) (actual time=0.052..0.312 rows=13 loops=1)
+        Buffers: shared hit=106
+        ->  Append  (cost=4.60..69.72 rows=3 width=20) (actual time=0.031..0.172 rows=13 loops=1)
+              Buffers: shared hit=54
+              ->  Nested Loop  (cost=4.60..28.52 rows=2 width=20) (actual time=0.030..0.049 rows=3 loops=1)
+                    Buffers: shared hit=14
+                    ->  Bitmap Heap Scan on chat_threads t_1  (cost=4.31..11.90 rows=2 width=8) (actual time=0.017..0.026 rows=3 loops=1)
+                          Recheck Cond: (buyer_id = 1042)
+                          Heap Blocks: exact=3
+                          Buffers: shared hit=5
+                          ->  Bitmap Index Scan on idx_threads_buyer  (cost=0.00..4.30 rows=2 width=0) (actual time=0.008..0.008 rows=3 loops=1)
+                                Index Cond: (buyer_id = 1042)
+                                Buffers: shared hit=2
+                    ->  Index Scan using listings_pkey on listings l  (cost=0.29..8.31 rows=1 width=20) (actual time=0.007..0.007 rows=1 loops=3)
+                          Index Cond: (listing_id = t_1.listing_id)
+                          Buffers: shared hit=9
+              ->  Nested Loop  (cost=4.73..41.19 rows=1 width=20) (actual time=0.042..0.122 rows=10 loops=1)
+                    Buffers: shared hit=40
+                    ->  Bitmap Heap Scan on listings l_1  (cost=4.44..16.24 rows=3 width=20) (actual time=0.015..0.046 rows=9 loops=1)
+                          Recheck Cond: (seller_id = 1042)
+                          Heap Blocks: exact=9
+                          Buffers: shared hit=12
+                          ->  Bitmap Index Scan on idx_listings_seller_status_listing  (cost=0.00..4.44 rows=3 width=0) (actual time=0.009..0.009 rows=9 loops=1)
+                                Index Cond: (seller_id = 1042)
+                                Buffers: shared hit=3
+                    ->  Index Scan using chat_threads_listing_buyer_key on chat_threads t_2  (cost=0.29..8.31 rows=1 width=8) (actual time=0.006..0.008 rows=1 loops=9)
+                          Index Cond: (listing_id = l_1.listing_id)
+                          Buffers: shared hit=28
+        ->  Limit  (cost=0.42..3.75 rows=1 width=29) (actual time=0.010..0.010 rows=1 loops=13)
+              Buffers: shared hit=52
+              ->  Index Scan using idx_msgs_thread_sent on chat_messages m  (cost=0.42..13.74 rows=4 width=29) (actual time=0.010..0.010 rows=1 loops=13)
+                    Index Cond: (thread_id = t_1.thread_id)
+                    Buffers: shared hit=52
+Planning:
+  Buffers: shared hit=530
+Planning Time: 3.514 ms
+Execution Time: 0.395 ms
+=== R06 run 2 ===
+Sort  (cost=81.03..81.04 rows=3 width=49) (actual time=0.545..0.549 rows=13 loops=1)
+  Sort Key: m.sent_at DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=109
+  ->  Nested Loop  (cost=5.02..81.00 rows=3 width=49) (actual time=0.080..0.486 rows=13 loops=1)
+        Buffers: shared hit=106
+        ->  Append  (cost=4.60..69.72 rows=3 width=20) (actual time=0.047..0.305 rows=13 loops=1)
+              Buffers: shared hit=54
+              ->  Nested Loop  (cost=4.60..28.52 rows=2 width=20) (actual time=0.046..0.089 rows=3 loops=1)
+                    Buffers: shared hit=14
+                    ->  Bitmap Heap Scan on chat_threads t_1  (cost=4.31..11.90 rows=2 width=8) (actual time=0.024..0.034 rows=3 loops=1)
+                          Recheck Cond: (buyer_id = 1042)
+                          Heap Blocks: exact=3
+                          Buffers: shared hit=5
+                          ->  Bitmap Index Scan on idx_threads_buyer  (cost=0.00..4.30 rows=2 width=0) (actual time=0.015..0.015 rows=3 loops=1)
+                                Index Cond: (buyer_id = 1042)
+                                Buffers: shared hit=2
+                    ->  Index Scan using listings_pkey on listings l  (cost=0.29..8.31 rows=1 width=20) (actual time=0.016..0.016 rows=1 loops=3)
+                          Index Cond: (listing_id = t_1.listing_id)
+                          Buffers: shared hit=9
+              ->  Nested Loop  (cost=4.73..41.19 rows=1 width=20) (actual time=0.084..0.212 rows=10 loops=1)
+                    Buffers: shared hit=40
+                    ->  Bitmap Heap Scan on listings l_1  (cost=4.44..16.24 rows=3 width=20) (actual time=0.030..0.099 rows=9 loops=1)
+                          Recheck Cond: (seller_id = 1042)
+                          Heap Blocks: exact=9
+                          Buffers: shared hit=12
+                          ->  Bitmap Index Scan on idx_listings_seller_status_listing  (cost=0.00..4.44 rows=3 width=0) (actual time=0.022..0.022 rows=9 loops=1)
+                                Index Cond: (seller_id = 1042)
+                                Buffers: shared hit=3
+                    ->  Index Scan using chat_threads_listing_buyer_key on chat_threads t_2  (cost=0.29..8.31 rows=1 width=8) (actual time=0.009..0.011 rows=1 loops=9)
+                          Index Cond: (listing_id = l_1.listing_id)
+                          Buffers: shared hit=28
+        ->  Limit  (cost=0.42..3.75 rows=1 width=29) (actual time=0.013..0.013 rows=1 loops=13)
+              Buffers: shared hit=52
+              ->  Index Scan using idx_msgs_thread_sent on chat_messages m  (cost=0.42..13.74 rows=4 width=29) (actual time=0.012..0.012 rows=1 loops=13)
+                    Index Cond: (thread_id = t_1.thread_id)
+                    Buffers: shared hit=52
+Planning:
+  Buffers: shared hit=530
+Planning Time: 4.107 ms
+Execution Time: 0.699 ms
+=== R06 run 3 ===
+Sort  (cost=81.03..81.04 rows=3 width=49) (actual time=0.364..0.366 rows=13 loops=1)
+  Sort Key: m.sent_at DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=109
+  ->  Nested Loop  (cost=5.02..81.00 rows=3 width=49) (actual time=0.057..0.326 rows=13 loops=1)
+        Buffers: shared hit=106
+        ->  Append  (cost=4.60..69.72 rows=3 width=20) (actual time=0.036..0.193 rows=13 loops=1)
+              Buffers: shared hit=54
+              ->  Nested Loop  (cost=4.60..28.52 rows=2 width=20) (actual time=0.035..0.056 rows=3 loops=1)
+                    Buffers: shared hit=14
+                    ->  Bitmap Heap Scan on chat_threads t_1  (cost=4.31..11.90 rows=2 width=8) (actual time=0.019..0.026 rows=3 loops=1)
+                          Recheck Cond: (buyer_id = 1042)
+                          Heap Blocks: exact=3
+                          Buffers: shared hit=5
+                          ->  Bitmap Index Scan on idx_threads_buyer  (cost=0.00..4.30 rows=2 width=0) (actual time=0.011..0.012 rows=3 loops=1)
+                                Index Cond: (buyer_id = 1042)
+                                Buffers: shared hit=2
+                    ->  Index Scan using listings_pkey on listings l  (cost=0.29..8.31 rows=1 width=20) (actual time=0.008..0.008 rows=1 loops=3)
+                          Index Cond: (listing_id = t_1.listing_id)
+                          Buffers: shared hit=9
+              ->  Nested Loop  (cost=4.73..41.19 rows=1 width=20) (actual time=0.052..0.134 rows=10 loops=1)
+                    Buffers: shared hit=40
+                    ->  Bitmap Heap Scan on listings l_1  (cost=4.44..16.24 rows=3 width=20) (actual time=0.020..0.057 rows=9 loops=1)
+                          Recheck Cond: (seller_id = 1042)
+                          Heap Blocks: exact=9
+                          Buffers: shared hit=12
+                          ->  Bitmap Index Scan on idx_listings_seller_status_listing  (cost=0.00..4.44 rows=3 width=0) (actual time=0.015..0.015 rows=9 loops=1)
+                                Index Cond: (seller_id = 1042)
+                                Buffers: shared hit=3
+                    ->  Index Scan using chat_threads_listing_buyer_key on chat_threads t_2  (cost=0.29..8.31 rows=1 width=8) (actual time=0.006..0.008 rows=1 loops=9)
+                          Index Cond: (listing_id = l_1.listing_id)
+                          Buffers: shared hit=28
+        ->  Limit  (cost=0.42..3.75 rows=1 width=29) (actual time=0.010..0.010 rows=1 loops=13)
+              Buffers: shared hit=52
+              ->  Index Scan using idx_msgs_thread_sent on chat_messages m  (cost=0.42..13.74 rows=4 width=29) (actual time=0.009..0.009 rows=1 loops=13)
+                    Index Cond: (thread_id = t_1.thread_id)
+                    Buffers: shared hit=52
+Planning:
+  Buffers: shared hit=530
+Planning Time: 2.127 ms
+Execution Time: 0.465 ms

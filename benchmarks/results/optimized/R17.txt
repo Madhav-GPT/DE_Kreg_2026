@@ -1,0 +1,102 @@
+=== R17 run 1 ===
+Finalize GroupAggregate  (cost=6467.69..6474.13 rows=24 width=50) (actual time=27.769..29.071 rows=18 loops=1)
+  Group Key: c.category_name, ((l.boost_package_id IS NOT NULL))
+  Buffers: shared hit=4351
+  ->  Gather Merge  (cost=6467.69..6473.29 rows=48 width=50) (actual time=27.752..29.000 rows=54 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=4351
+        ->  Sort  (cost=5467.67..5467.73 rows=24 width=50) (actual time=24.329..24.331 rows=18 loops=3)
+              Sort Key: c.category_name, ((l.boost_package_id IS NOT NULL))
+              Sort Method: quicksort  Memory: 26kB
+              Buffers: shared hit=4351
+              Worker 0:  Sort Method: quicksort  Memory: 26kB
+              Worker 1:  Sort Method: quicksort  Memory: 26kB
+              ->  Partial HashAggregate  (cost=5466.88..5467.12 rows=24 width=50) (actual time=24.275..24.278 rows=18 loops=3)
+                    Group Key: c.category_name, (l.boost_package_id IS NOT NULL)
+                    Batches: 1  Memory Usage: 24kB
+                    Buffers: shared hit=4319
+                    Worker 0:  Batches: 1  Memory Usage: 24kB
+                    Worker 1:  Batches: 1  Memory Usage: 24kB
+                    ->  Hash Join  (cost=1.27..4966.88 rows=50000 width=14) (actual time=0.059..15.403 rows=40000 loops=3)
+                          Hash Cond: (l.category_id = c.category_id)
+                          Buffers: shared hit=4319
+                          ->  Parallel Seq Scan on listings l  (cost=0.00..4788.00 rows=50000 width=8) (actual time=0.007..4.470 rows=40000 loops=3)
+                                Buffers: shared hit=4288
+                          ->  Hash  (cost=1.12..1.12 rows=12 width=11) (actual time=0.034..0.034 rows=12 loops=3)
+                                Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                                Buffers: shared hit=3
+                                ->  Seq Scan on categories c  (cost=0.00..1.12 rows=12 width=11) (actual time=0.026..0.027 rows=12 loops=3)
+                                      Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=424
+Planning Time: 1.912 ms
+Execution Time: 29.221 ms
+=== R17 run 2 ===
+Finalize GroupAggregate  (cost=6467.69..6474.13 rows=24 width=50) (actual time=22.291..23.393 rows=18 loops=1)
+  Group Key: c.category_name, ((l.boost_package_id IS NOT NULL))
+  Buffers: shared hit=4351
+  ->  Gather Merge  (cost=6467.69..6473.29 rows=48 width=50) (actual time=22.278..23.333 rows=54 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=4351
+        ->  Sort  (cost=5467.67..5467.73 rows=24 width=50) (actual time=19.058..19.060 rows=18 loops=3)
+              Sort Key: c.category_name, ((l.boost_package_id IS NOT NULL))
+              Sort Method: quicksort  Memory: 26kB
+              Buffers: shared hit=4351
+              Worker 0:  Sort Method: quicksort  Memory: 26kB
+              Worker 1:  Sort Method: quicksort  Memory: 26kB
+              ->  Partial HashAggregate  (cost=5466.88..5467.12 rows=24 width=50) (actual time=19.004..19.007 rows=18 loops=3)
+                    Group Key: c.category_name, (l.boost_package_id IS NOT NULL)
+                    Batches: 1  Memory Usage: 24kB
+                    Buffers: shared hit=4319
+                    Worker 0:  Batches: 1  Memory Usage: 24kB
+                    Worker 1:  Batches: 1  Memory Usage: 24kB
+                    ->  Hash Join  (cost=1.27..4966.88 rows=50000 width=14) (actual time=0.058..12.370 rows=40000 loops=3)
+                          Hash Cond: (l.category_id = c.category_id)
+                          Buffers: shared hit=4319
+                          ->  Parallel Seq Scan on listings l  (cost=0.00..4788.00 rows=50000 width=8) (actual time=0.007..3.450 rows=40000 loops=3)
+                                Buffers: shared hit=4288
+                          ->  Hash  (cost=1.12..1.12 rows=12 width=11) (actual time=0.034..0.034 rows=12 loops=3)
+                                Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                                Buffers: shared hit=3
+                                ->  Seq Scan on categories c  (cost=0.00..1.12 rows=12 width=11) (actual time=0.026..0.028 rows=12 loops=3)
+                                      Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=424
+Planning Time: 1.608 ms
+Execution Time: 23.508 ms
+=== R17 run 3 ===
+Finalize GroupAggregate  (cost=6467.69..6474.13 rows=24 width=50) (actual time=20.748..21.804 rows=18 loops=1)
+  Group Key: c.category_name, ((l.boost_package_id IS NOT NULL))
+  Buffers: shared hit=4351
+  ->  Gather Merge  (cost=6467.69..6473.29 rows=48 width=50) (actual time=20.736..21.779 rows=54 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=4351
+        ->  Sort  (cost=5467.67..5467.73 rows=24 width=50) (actual time=17.950..17.956 rows=18 loops=3)
+              Sort Key: c.category_name, ((l.boost_package_id IS NOT NULL))
+              Sort Method: quicksort  Memory: 26kB
+              Buffers: shared hit=4351
+              Worker 0:  Sort Method: quicksort  Memory: 26kB
+              Worker 1:  Sort Method: quicksort  Memory: 26kB
+              ->  Partial HashAggregate  (cost=5466.88..5467.12 rows=24 width=50) (actual time=17.900..17.902 rows=18 loops=3)
+                    Group Key: c.category_name, (l.boost_package_id IS NOT NULL)
+                    Batches: 1  Memory Usage: 24kB
+                    Buffers: shared hit=4319
+                    Worker 0:  Batches: 1  Memory Usage: 24kB
+                    Worker 1:  Batches: 1  Memory Usage: 24kB
+                    ->  Hash Join  (cost=1.27..4966.88 rows=50000 width=14) (actual time=0.054..11.781 rows=40000 loops=3)
+                          Hash Cond: (l.category_id = c.category_id)
+                          Buffers: shared hit=4319
+                          ->  Parallel Seq Scan on listings l  (cost=0.00..4788.00 rows=50000 width=8) (actual time=0.006..3.336 rows=40000 loops=3)
+                                Buffers: shared hit=4288
+                          ->  Hash  (cost=1.12..1.12 rows=12 width=11) (actual time=0.032..0.032 rows=12 loops=3)
+                                Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                                Buffers: shared hit=3
+                                ->  Seq Scan on categories c  (cost=0.00..1.12 rows=12 width=11) (actual time=0.024..0.025 rows=12 loops=3)
+                                      Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=424
+Planning Time: 1.266 ms
+Execution Time: 21.953 ms
