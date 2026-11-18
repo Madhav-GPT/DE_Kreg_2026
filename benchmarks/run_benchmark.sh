@@ -8,7 +8,8 @@
 #
 # Connection settings come from the usual libpq variables (PGHOST, PGPORT, PGUSER).
 # Queries are split on "-- @R1" / "-- @W1" marker lines; "-- @END" stops collection.
-
+#
+# WRITE queries (W*) run inside BEGIN ... ROLLBACK, so your data does not change.
 set -euo pipefail
 
 DB="${1:?database name required}"
