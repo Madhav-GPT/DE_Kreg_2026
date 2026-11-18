@@ -1,81 +1,81 @@
 === R21 run 1 ===
-Limit  (cost=2280.16..2280.21 rows=20 width=56) (actual time=16.690..16.693 rows=14.00 loops=1)
-  Buffers: shared hit=629
-  ->  Sort  (cost=2280.16..2289.53 rows=3748 width=56) (actual time=16.689..16.691 rows=14.00 loops=1)
+Limit  (cost=2265.16..2265.21 rows=20 width=56) (actual time=7.506..7.508 rows=14.00 loops=1)
+  Buffers: shared hit=614
+  ->  Sort  (cost=2265.16..2274.53 rows=3748 width=56) (actual time=7.506..7.506 rows=14.00 loops=1)
         Sort Key: (round(avg(r.stars), 2)) DESC, (count(*)) DESC
         Sort Method: quicksort  Memory: 25kB
-        Buffers: shared hit=629
-        ->  HashAggregate  (cost=2002.40..2180.43 rows=3748 width=56) (actual time=15.132..16.669 rows=14.00 loops=1)
+        Buffers: shared hit=614
+        ->  HashAggregate  (cost=1987.40..2165.43 rows=3748 width=56) (actual time=6.755..7.494 rows=14.00 loops=1)
               Group Key: r.seller_id, u.full_name
               Filter: (count(*) >= 5)
               Batches: 1  Memory Usage: 1809kB
               Rows Removed by Filter: 8825
-              Buffers: shared hit=623
-              ->  Hash Join  (cost=1653.00..1889.96 rows=11244 width=18) (actual time=9.053..12.306 rows=11244.00 loops=1)
+              Buffers: shared hit=608
+              ->  Hash Join  (cost=1638.00..1874.96 rows=11244 width=18) (actual time=4.243..5.573 rows=11244.00 loops=1)
                     Hash Cond: (r.seller_id = u.user_id)
-                    Buffers: shared hit=623
-                    ->  Seq Scan on seller_ratings r  (cost=0.00..207.44 rows=11244 width=6) (actual time=0.008..0.670 rows=11244.00 loops=1)
+                    Buffers: shared hit=608
+                    ->  Seq Scan on seller_ratings r  (cost=0.00..207.44 rows=11244 width=6) (actual time=0.004..0.271 rows=11244.00 loops=1)
                           Buffers: shared hit=95
-                    ->  Hash  (cost=1028.00..1028.00 rows=50000 width=16) (actual time=8.995..8.996 rows=50000.00 loops=1)
+                    ->  Hash  (cost=1013.00..1013.00 rows=50000 width=16) (actual time=4.209..4.209 rows=50000.00 loops=1)
                           Buckets: 65536  Batches: 1  Memory Usage: 2927kB
-                          Buffers: shared hit=528
-                          ->  Seq Scan on users u  (cost=0.00..1028.00 rows=50000 width=16) (actual time=0.006..4.376 rows=50000.00 loops=1)
-                                Buffers: shared hit=528
+                          Buffers: shared hit=513
+                          ->  Seq Scan on users u  (cost=0.00..1013.00 rows=50000 width=16) (actual time=0.003..1.991 rows=50000.00 loops=1)
+                                Buffers: shared hit=513
 Planning:
   Buffers: shared hit=232
-Planning Time: 0.932 ms
-Execution Time: 16.813 ms
+Planning Time: 0.450 ms
+Execution Time: 7.556 ms
 === R21 run 2 ===
-Limit  (cost=2280.16..2280.21 rows=20 width=56) (actual time=17.068..17.071 rows=14.00 loops=1)
-  Buffers: shared hit=629
-  ->  Sort  (cost=2280.16..2289.53 rows=3748 width=56) (actual time=17.067..17.069 rows=14.00 loops=1)
+Limit  (cost=2265.16..2265.21 rows=20 width=56) (actual time=7.550..7.551 rows=14.00 loops=1)
+  Buffers: shared hit=614
+  ->  Sort  (cost=2265.16..2274.53 rows=3748 width=56) (actual time=7.549..7.550 rows=14.00 loops=1)
         Sort Key: (round(avg(r.stars), 2)) DESC, (count(*)) DESC
         Sort Method: quicksort  Memory: 25kB
-        Buffers: shared hit=629
-        ->  HashAggregate  (cost=2002.40..2180.43 rows=3748 width=56) (actual time=15.490..17.045 rows=14.00 loops=1)
+        Buffers: shared hit=614
+        ->  HashAggregate  (cost=1987.40..2165.43 rows=3748 width=56) (actual time=6.846..7.539 rows=14.00 loops=1)
               Group Key: r.seller_id, u.full_name
               Filter: (count(*) >= 5)
               Batches: 1  Memory Usage: 1809kB
               Rows Removed by Filter: 8825
-              Buffers: shared hit=623
-              ->  Hash Join  (cost=1653.00..1889.96 rows=11244 width=18) (actual time=8.468..12.321 rows=11244.00 loops=1)
+              Buffers: shared hit=608
+              ->  Hash Join  (cost=1638.00..1874.96 rows=11244 width=18) (actual time=4.218..5.633 rows=11244.00 loops=1)
                     Hash Cond: (r.seller_id = u.user_id)
-                    Buffers: shared hit=623
-                    ->  Seq Scan on seller_ratings r  (cost=0.00..207.44 rows=11244 width=6) (actual time=0.006..0.660 rows=11244.00 loops=1)
+                    Buffers: shared hit=608
+                    ->  Seq Scan on seller_ratings r  (cost=0.00..207.44 rows=11244 width=6) (actual time=0.004..0.268 rows=11244.00 loops=1)
                           Buffers: shared hit=95
-                    ->  Hash  (cost=1028.00..1028.00 rows=50000 width=16) (actual time=8.412..8.412 rows=50000.00 loops=1)
+                    ->  Hash  (cost=1013.00..1013.00 rows=50000 width=16) (actual time=4.183..4.183 rows=50000.00 loops=1)
                           Buckets: 65536  Batches: 1  Memory Usage: 2927kB
-                          Buffers: shared hit=528
-                          ->  Seq Scan on users u  (cost=0.00..1028.00 rows=50000 width=16) (actual time=0.004..3.858 rows=50000.00 loops=1)
-                                Buffers: shared hit=528
+                          Buffers: shared hit=513
+                          ->  Seq Scan on users u  (cost=0.00..1013.00 rows=50000 width=16) (actual time=0.003..1.979 rows=50000.00 loops=1)
+                                Buffers: shared hit=513
 Planning:
   Buffers: shared hit=232
-Planning Time: 0.733 ms
-Execution Time: 17.161 ms
+Planning Time: 0.401 ms
+Execution Time: 7.598 ms
 === R21 run 3 ===
-Limit  (cost=2280.16..2280.21 rows=20 width=56) (actual time=15.721..15.724 rows=14.00 loops=1)
-  Buffers: shared hit=629
-  ->  Sort  (cost=2280.16..2289.53 rows=3748 width=56) (actual time=15.720..15.722 rows=14.00 loops=1)
+Limit  (cost=2265.16..2265.21 rows=20 width=56) (actual time=7.563..7.565 rows=14.00 loops=1)
+  Buffers: shared hit=614
+  ->  Sort  (cost=2265.16..2274.53 rows=3748 width=56) (actual time=7.562..7.563 rows=14.00 loops=1)
         Sort Key: (round(avg(r.stars), 2)) DESC, (count(*)) DESC
         Sort Method: quicksort  Memory: 25kB
-        Buffers: shared hit=629
-        ->  HashAggregate  (cost=2002.40..2180.43 rows=3748 width=56) (actual time=14.267..15.701 rows=14.00 loops=1)
+        Buffers: shared hit=614
+        ->  HashAggregate  (cost=1987.40..2165.43 rows=3748 width=56) (actual time=6.834..7.552 rows=14.00 loops=1)
               Group Key: r.seller_id, u.full_name
               Filter: (count(*) >= 5)
               Batches: 1  Memory Usage: 1809kB
               Rows Removed by Filter: 8825
-              Buffers: shared hit=623
-              ->  Hash Join  (cost=1653.00..1889.96 rows=11244 width=18) (actual time=8.520..11.615 rows=11244.00 loops=1)
+              Buffers: shared hit=608
+              ->  Hash Join  (cost=1638.00..1874.96 rows=11244 width=18) (actual time=4.193..5.619 rows=11244.00 loops=1)
                     Hash Cond: (r.seller_id = u.user_id)
-                    Buffers: shared hit=623
-                    ->  Seq Scan on seller_ratings r  (cost=0.00..207.44 rows=11244 width=6) (actual time=0.005..0.542 rows=11244.00 loops=1)
+                    Buffers: shared hit=608
+                    ->  Seq Scan on seller_ratings r  (cost=0.00..207.44 rows=11244 width=6) (actual time=0.004..0.273 rows=11244.00 loops=1)
                           Buffers: shared hit=95
-                    ->  Hash  (cost=1028.00..1028.00 rows=50000 width=16) (actual time=8.466..8.466 rows=50000.00 loops=1)
+                    ->  Hash  (cost=1013.00..1013.00 rows=50000 width=16) (actual time=4.161..4.161 rows=50000.00 loops=1)
                           Buckets: 65536  Batches: 1  Memory Usage: 2927kB
-                          Buffers: shared hit=528
-                          ->  Seq Scan on users u  (cost=0.00..1028.00 rows=50000 width=16) (actual time=0.004..3.811 rows=50000.00 loops=1)
-                                Buffers: shared hit=528
+                          Buffers: shared hit=513
+                          ->  Seq Scan on users u  (cost=0.00..1013.00 rows=50000 width=16) (actual time=0.003..1.950 rows=50000.00 loops=1)
+                                Buffers: shared hit=513
 Planning:
   Buffers: shared hit=232
-Planning Time: 0.755 ms
-Execution Time: 15.828 ms
+Planning Time: 0.417 ms
+Execution Time: 7.611 ms

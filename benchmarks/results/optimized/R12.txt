@@ -1,51 +1,51 @@
 === R12 run 1 ===
-Sort  (cost=11883.68..11988.25 rows=41827 width=16) (actual time=79.410..79.412 rows=30.00 loops=1)
+Sort  (cost=11313.74..11413.63 rows=39953 width=16) (actual time=32.035..32.035 rows=30.00 loops=1)
   Sort Key: (count(*)) DESC, ((posted_at)::date)
   Sort Method: quicksort  Memory: 25kB
-  Buffers: shared hit=4494, temp read=64 written=134
-  ->  HashAggregate  (cost=6999.94..8673.01 rows=41827 width=16) (actual time=63.669..79.380 rows=30.00 loops=1)
+  Buffers: shared hit=4268, temp read=65 written=133
+  ->  HashAggregate  (cost=6662.00..8260.13 rows=39953 width=16) (actual time=24.665..32.025 rows=30.00 loops=1)
         Group Key: seller_id, (posted_at)::date
         Filter: (count(*) >= 5)
         Batches: 5  Memory Usage: 8249kB  Disk Usage: 704kB
         Rows Removed by Filter: 119414
-        Buffers: shared hit=4488, temp read=64 written=134
-        ->  Seq Scan on listings  (cost=0.00..6057.96 rows=125597 width=8) (actual time=0.030..34.876 rows=120000.00 loops=1)
-              Buffers: shared hit=4488
+        Buffers: shared hit=4262, temp read=65 written=133
+        ->  Seq Scan on listings  (cost=0.00..5762.00 rows=120000 width=8) (actual time=0.010..13.875 rows=120000.00 loops=1)
+              Buffers: shared hit=4262
 Planning:
   Buffers: shared hit=320
-Planning Time: 0.925 ms
-Execution Time: 80.272 ms
+Planning Time: 0.423 ms
+Execution Time: 32.423 ms
 === R12 run 2 ===
-Sort  (cost=11883.68..11988.25 rows=41827 width=16) (actual time=73.981..73.985 rows=30.00 loops=1)
+Sort  (cost=11313.74..11413.63 rows=39953 width=16) (actual time=32.388..32.389 rows=30.00 loops=1)
   Sort Key: (count(*)) DESC, ((posted_at)::date)
   Sort Method: quicksort  Memory: 25kB
-  Buffers: shared hit=4494, temp read=64 written=134
-  ->  HashAggregate  (cost=6999.94..8673.01 rows=41827 width=16) (actual time=57.299..73.955 rows=30.00 loops=1)
+  Buffers: shared hit=4268, temp read=65 written=133
+  ->  HashAggregate  (cost=6662.00..8260.13 rows=39953 width=16) (actual time=24.934..32.378 rows=30.00 loops=1)
         Group Key: seller_id, (posted_at)::date
         Filter: (count(*) >= 5)
         Batches: 5  Memory Usage: 8249kB  Disk Usage: 704kB
         Rows Removed by Filter: 119414
-        Buffers: shared hit=4488, temp read=64 written=134
-        ->  Seq Scan on listings  (cost=0.00..6057.96 rows=125597 width=8) (actual time=0.051..29.935 rows=120000.00 loops=1)
-              Buffers: shared hit=4488
+        Buffers: shared hit=4262, temp read=65 written=133
+        ->  Seq Scan on listings  (cost=0.00..5762.00 rows=120000 width=8) (actual time=0.010..13.769 rows=120000.00 loops=1)
+              Buffers: shared hit=4262
 Planning:
   Buffers: shared hit=320
-Planning Time: 0.865 ms
-Execution Time: 74.672 ms
+Planning Time: 0.431 ms
+Execution Time: 32.815 ms
 === R12 run 3 ===
-Sort  (cost=11883.68..11988.25 rows=41827 width=16) (actual time=74.825..74.827 rows=30.00 loops=1)
+Sort  (cost=11313.74..11413.63 rows=39953 width=16) (actual time=31.643..31.643 rows=30.00 loops=1)
   Sort Key: (count(*)) DESC, ((posted_at)::date)
   Sort Method: quicksort  Memory: 25kB
-  Buffers: shared hit=4494, temp read=64 written=134
-  ->  HashAggregate  (cost=6999.94..8673.01 rows=41827 width=16) (actual time=57.125..74.795 rows=30.00 loops=1)
+  Buffers: shared hit=4268, temp read=65 written=133
+  ->  HashAggregate  (cost=6662.00..8260.13 rows=39953 width=16) (actual time=24.284..31.633 rows=30.00 loops=1)
         Group Key: seller_id, (posted_at)::date
         Filter: (count(*) >= 5)
         Batches: 5  Memory Usage: 8249kB  Disk Usage: 704kB
         Rows Removed by Filter: 119414
-        Buffers: shared hit=4488, temp read=64 written=134
-        ->  Seq Scan on listings  (cost=0.00..6057.96 rows=125597 width=8) (actual time=0.016..29.964 rows=120000.00 loops=1)
-              Buffers: shared hit=4488
+        Buffers: shared hit=4262, temp read=65 written=133
+        ->  Seq Scan on listings  (cost=0.00..5762.00 rows=120000 width=8) (actual time=0.011..13.686 rows=120000.00 loops=1)
+              Buffers: shared hit=4262
 Planning:
   Buffers: shared hit=320
-Planning Time: 0.758 ms
-Execution Time: 75.470 ms
+Planning Time: 0.417 ms
+Execution Time: 32.029 ms

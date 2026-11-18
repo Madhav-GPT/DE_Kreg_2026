@@ -1,69 +1,69 @@
 === R04 run 1 ===
-Nested Loop  (cost=0.58..20.94 rows=1 width=153) (actual time=0.131..0.132 rows=1.00 loops=1)
+Nested Loop  (cost=0.58..20.94 rows=1 width=153) (actual time=0.062..0.063 rows=1.00 loops=1)
   Buffers: shared hit=9
-  ->  Index Scan using listings_pkey on listings l  (cost=0.29..8.31 rows=1 width=112) (actual time=0.022..0.022 rows=1.00 loops=1)
+  ->  Index Scan using listings_pkey on listings l  (cost=0.29..8.31 rows=1 width=112) (actual time=0.008..0.008 rows=1.00 loops=1)
         Index Cond: (listing_id = 100871)
         Index Searches: 1
         Buffers: shared hit=3
-  ->  Index Scan using users_pkey on users u  (cost=0.29..8.31 rows=1 width=17) (actual time=0.013..0.013 rows=1.00 loops=1)
+  ->  Index Scan using users_pkey on users u  (cost=0.29..8.31 rows=1 width=17) (actual time=0.005..0.005 rows=1.00 loops=1)
         Index Cond: (user_id = l.seller_id)
         Index Searches: 1
         Buffers: shared hit=3
   SubPlan 1
-    ->  Aggregate  (cost=4.31..4.32 rows=1 width=32) (actual time=0.092..0.092 rows=1.00 loops=1)
+    ->  Aggregate  (cost=4.31..4.32 rows=1 width=32) (actual time=0.047..0.047 rows=1.00 loops=1)
           Buffers: shared hit=3
-          ->  Index Only Scan using idx_seller_ratings_seller on seller_ratings r  (cost=0.29..4.30 rows=1 width=2) (actual time=0.059..0.059 rows=2.00 loops=1)
+          ->  Index Only Scan using idx_seller_ratings_seller on seller_ratings r  (cost=0.29..4.30 rows=1 width=2) (actual time=0.038..0.039 rows=2.00 loops=1)
                 Index Cond: (seller_id = l.seller_id)
                 Heap Fetches: 0
                 Index Searches: 1
                 Buffers: shared hit=3
 Planning:
   Buffers: shared hit=553
-Planning Time: 1.878 ms
-Execution Time: 0.209 ms
+Planning Time: 1.015 ms
+Execution Time: 0.098 ms
 === R04 run 2 ===
-Nested Loop  (cost=0.58..20.94 rows=1 width=153) (actual time=0.085..0.086 rows=1.00 loops=1)
+Nested Loop  (cost=0.58..20.94 rows=1 width=153) (actual time=0.053..0.053 rows=1.00 loops=1)
   Buffers: shared hit=9
-  ->  Index Scan using listings_pkey on listings l  (cost=0.29..8.31 rows=1 width=112) (actual time=0.013..0.013 rows=1.00 loops=1)
+  ->  Index Scan using listings_pkey on listings l  (cost=0.29..8.31 rows=1 width=112) (actual time=0.008..0.008 rows=1.00 loops=1)
         Index Cond: (listing_id = 100871)
         Index Searches: 1
         Buffers: shared hit=3
-  ->  Index Scan using users_pkey on users u  (cost=0.29..8.31 rows=1 width=17) (actual time=0.006..0.006 rows=1.00 loops=1)
+  ->  Index Scan using users_pkey on users u  (cost=0.29..8.31 rows=1 width=17) (actual time=0.005..0.005 rows=1.00 loops=1)
         Index Cond: (user_id = l.seller_id)
         Index Searches: 1
         Buffers: shared hit=3
   SubPlan 1
-    ->  Aggregate  (cost=4.31..4.32 rows=1 width=32) (actual time=0.062..0.062 rows=1.00 loops=1)
+    ->  Aggregate  (cost=4.31..4.32 rows=1 width=32) (actual time=0.038..0.038 rows=1.00 loops=1)
           Buffers: shared hit=3
-          ->  Index Only Scan using idx_seller_ratings_seller on seller_ratings r  (cost=0.29..4.30 rows=1 width=2) (actual time=0.044..0.045 rows=2.00 loops=1)
+          ->  Index Only Scan using idx_seller_ratings_seller on seller_ratings r  (cost=0.29..4.30 rows=1 width=2) (actual time=0.030..0.030 rows=2.00 loops=1)
                 Index Cond: (seller_id = l.seller_id)
                 Heap Fetches: 0
                 Index Searches: 1
                 Buffers: shared hit=3
 Planning:
   Buffers: shared hit=553
-Planning Time: 1.469 ms
-Execution Time: 0.155 ms
+Planning Time: 0.922 ms
+Execution Time: 0.088 ms
 === R04 run 3 ===
-Nested Loop  (cost=0.58..20.94 rows=1 width=153) (actual time=0.075..0.076 rows=1.00 loops=1)
+Nested Loop  (cost=0.58..20.94 rows=1 width=153) (actual time=0.049..0.050 rows=1.00 loops=1)
   Buffers: shared hit=9
-  ->  Index Scan using listings_pkey on listings l  (cost=0.29..8.31 rows=1 width=112) (actual time=0.011..0.011 rows=1.00 loops=1)
+  ->  Index Scan using listings_pkey on listings l  (cost=0.29..8.31 rows=1 width=112) (actual time=0.007..0.007 rows=1.00 loops=1)
         Index Cond: (listing_id = 100871)
         Index Searches: 1
         Buffers: shared hit=3
-  ->  Index Scan using users_pkey on users u  (cost=0.29..8.31 rows=1 width=17) (actual time=0.006..0.006 rows=1.00 loops=1)
+  ->  Index Scan using users_pkey on users u  (cost=0.29..8.31 rows=1 width=17) (actual time=0.004..0.004 rows=1.00 loops=1)
         Index Cond: (user_id = l.seller_id)
         Index Searches: 1
         Buffers: shared hit=3
   SubPlan 1
-    ->  Aggregate  (cost=4.31..4.32 rows=1 width=32) (actual time=0.054..0.054 rows=1.00 loops=1)
+    ->  Aggregate  (cost=4.31..4.32 rows=1 width=32) (actual time=0.036..0.036 rows=1.00 loops=1)
           Buffers: shared hit=3
-          ->  Index Only Scan using idx_seller_ratings_seller on seller_ratings r  (cost=0.29..4.30 rows=1 width=2) (actual time=0.037..0.038 rows=2.00 loops=1)
+          ->  Index Only Scan using idx_seller_ratings_seller on seller_ratings r  (cost=0.29..4.30 rows=1 width=2) (actual time=0.028..0.028 rows=2.00 loops=1)
                 Index Cond: (seller_id = l.seller_id)
                 Heap Fetches: 0
                 Index Searches: 1
                 Buffers: shared hit=3
 Planning:
   Buffers: shared hit=553
-Planning Time: 1.337 ms
-Execution Time: 0.134 ms
+Planning Time: 0.866 ms
+Execution Time: 0.083 ms

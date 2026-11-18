@@ -1,27 +1,27 @@
 === R23 run 1 ===
-Index Scan using users_phone_key on users  (cost=0.29..8.31 rows=1 width=19) (actual time=0.016..0.016 rows=1.00 loops=1)
+Index Scan using users_phone_key on users  (cost=0.29..8.31 rows=1 width=19) (actual time=0.008..0.009 rows=1.00 loops=1)
   Index Cond: ((phone)::text = '8100001042'::text)
   Index Searches: 1
   Buffers: shared hit=3
 Planning:
   Buffers: shared hit=106
-Planning Time: 0.415 ms
-Execution Time: 0.044 ms
+Planning Time: 0.185 ms
+Execution Time: 0.023 ms
 === R23 run 2 ===
-Index Scan using users_phone_key on users  (cost=0.29..8.31 rows=1 width=19) (actual time=0.010..0.011 rows=1.00 loops=1)
+Index Scan using users_phone_key on users  (cost=0.29..8.31 rows=1 width=19) (actual time=0.008..0.008 rows=1.00 loops=1)
   Index Cond: ((phone)::text = '8100001042'::text)
   Index Searches: 1
   Buffers: shared hit=3
 Planning:
   Buffers: shared hit=106
-Planning Time: 0.349 ms
-Execution Time: 0.039 ms
+Planning Time: 0.184 ms
+Execution Time: 0.022 ms
 === R23 run 3 ===
-Index Scan using users_phone_key on users  (cost=0.29..8.31 rows=1 width=19) (actual time=0.011..0.012 rows=1.00 loops=1)
+Index Scan using users_phone_key on users  (cost=0.29..8.31 rows=1 width=19) (actual time=0.008..0.009 rows=1.00 loops=1)
   Index Cond: ((phone)::text = '8100001042'::text)
   Index Searches: 1
   Buffers: shared hit=3
 Planning:
   Buffers: shared hit=106
-Planning Time: 0.332 ms
-Execution Time: 0.040 ms
+Planning Time: 0.178 ms
+Execution Time: 0.022 ms

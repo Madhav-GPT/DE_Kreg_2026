@@ -1,42 +1,42 @@
 === R13 run 1 ===
-Nested Loop Anti Join  (cost=0.29..3.62 rows=2 width=24) (actual time=0.144..0.146 rows=2.00 loops=1)
+Nested Loop Anti Join  (cost=0.29..3.05 rows=2 width=24) (actual time=0.040..0.041 rows=2.00 loops=1)
   Buffers: shared hit=14
-  ->  Seq Scan on boost_packages b  (cost=0.00..1.06 rows=6 width=24) (actual time=0.008..0.009 rows=6.00 loops=1)
+  ->  Seq Scan on boost_packages b  (cost=0.00..1.06 rows=6 width=24) (actual time=0.003..0.004 rows=6.00 loops=1)
         Buffers: shared hit=1
-  ->  Index Only Scan using idx_listings_boost_package on listings l  (cost=0.29..189.50 rows=2456 width=2) (actual time=0.022..0.022 rows=0.67 loops=6)
+  ->  Index Only Scan using idx_listings_boost_package on listings l  (cost=0.29..47.76 rows=2332 width=2) (actual time=0.006..0.006 rows=0.67 loops=6)
         Index Cond: (boost_package_id = b.package_id)
         Heap Fetches: 0
         Index Searches: 6
         Buffers: shared hit=13
 Planning:
   Buffers: shared hit=415
-Planning Time: 1.114 ms
-Execution Time: 0.188 ms
+Planning Time: 0.593 ms
+Execution Time: 0.060 ms
 === R13 run 2 ===
-Nested Loop Anti Join  (cost=0.29..3.62 rows=2 width=24) (actual time=0.069..0.070 rows=2.00 loops=1)
+Nested Loop Anti Join  (cost=0.29..3.05 rows=2 width=24) (actual time=0.035..0.036 rows=2.00 loops=1)
   Buffers: shared hit=14
-  ->  Seq Scan on boost_packages b  (cost=0.00..1.06 rows=6 width=24) (actual time=0.006..0.007 rows=6.00 loops=1)
+  ->  Seq Scan on boost_packages b  (cost=0.00..1.06 rows=6 width=24) (actual time=0.003..0.003 rows=6.00 loops=1)
         Buffers: shared hit=1
-  ->  Index Only Scan using idx_listings_boost_package on listings l  (cost=0.29..189.50 rows=2456 width=2) (actual time=0.010..0.010 rows=0.67 loops=6)
+  ->  Index Only Scan using idx_listings_boost_package on listings l  (cost=0.29..47.76 rows=2332 width=2) (actual time=0.005..0.005 rows=0.67 loops=6)
         Index Cond: (boost_package_id = b.package_id)
         Heap Fetches: 0
         Index Searches: 6
         Buffers: shared hit=13
 Planning:
   Buffers: shared hit=415
-Planning Time: 1.107 ms
-Execution Time: 0.130 ms
+Planning Time: 0.574 ms
+Execution Time: 0.055 ms
 === R13 run 3 ===
-Nested Loop Anti Join  (cost=0.29..3.62 rows=2 width=24) (actual time=0.070..0.072 rows=2.00 loops=1)
+Nested Loop Anti Join  (cost=0.29..3.05 rows=2 width=24) (actual time=0.036..0.037 rows=2.00 loops=1)
   Buffers: shared hit=14
-  ->  Seq Scan on boost_packages b  (cost=0.00..1.06 rows=6 width=24) (actual time=0.006..0.006 rows=6.00 loops=1)
+  ->  Seq Scan on boost_packages b  (cost=0.00..1.06 rows=6 width=24) (actual time=0.003..0.003 rows=6.00 loops=1)
         Buffers: shared hit=1
-  ->  Index Only Scan using idx_listings_boost_package on listings l  (cost=0.29..189.50 rows=2456 width=2) (actual time=0.010..0.010 rows=0.67 loops=6)
+  ->  Index Only Scan using idx_listings_boost_package on listings l  (cost=0.29..47.76 rows=2332 width=2) (actual time=0.005..0.005 rows=0.67 loops=6)
         Index Cond: (boost_package_id = b.package_id)
         Heap Fetches: 0
         Index Searches: 6
         Buffers: shared hit=13
 Planning:
   Buffers: shared hit=415
-Planning Time: 1.049 ms
-Execution Time: 0.114 ms
+Planning Time: 0.548 ms
+Execution Time: 0.056 ms

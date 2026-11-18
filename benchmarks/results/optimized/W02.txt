@@ -1,66 +1,66 @@
 === W02 run 1 ===
-Update on listings  (cost=8.74..16.76 rows=0 width=0) (actual time=0.427..0.428 rows=0.00 loops=1)
-  Buffers: shared hit=97 dirtied=4
+Update on listings  (cost=4.74..12.76 rows=0 width=0) (actual time=0.615..0.615 rows=0.00 loops=1)
+  Buffers: shared hit=95 read=2 dirtied=6
   InitPlan 2
-    ->  Result  (cost=8.44..8.45 rows=1 width=4) (actual time=0.069..0.069 rows=1.00 loops=1)
-          Buffers: shared hit=5
+    ->  Result  (cost=4.44..4.45 rows=1 width=4) (actual time=0.029..0.029 rows=1.00 loops=1)
+          Buffers: shared hit=4
           InitPlan 1
-            ->  Limit  (cost=0.42..8.44 rows=1 width=4) (actual time=0.067..0.068 rows=1.00 loops=1)
-                  Buffers: shared hit=5
-                  ->  Index Only Scan using idx_listings_seller_status_listing on listings listings_1  (cost=0.42..8.44 rows=1 width=4) (actual time=0.067..0.067 rows=1.00 loops=1)
+            ->  Limit  (cost=0.42..4.44 rows=1 width=4) (actual time=0.028..0.028 rows=1.00 loops=1)
+                  Buffers: shared hit=4
+                  ->  Index Only Scan using idx_listings_seller_status_listing on listings listings_1  (cost=0.42..4.44 rows=1 width=4) (actual time=0.027..0.027 rows=1.00 loops=1)
                         Index Cond: ((seller_id = 1042) AND (status = 'ACTIVE'::text))
-                        Heap Fetches: 1
+                        Heap Fetches: 0
                         Index Searches: 1
-                        Buffers: shared hit=5
-  ->  Index Scan using listings_pkey on listings  (cost=0.29..8.31 rows=1 width=52) (actual time=0.085..0.086 rows=1.00 loops=1)
+                        Buffers: shared hit=4
+  ->  Index Scan using listings_pkey on listings  (cost=0.29..8.31 rows=1 width=52) (actual time=0.039..0.039 rows=1.00 loops=1)
         Index Cond: (listing_id = (InitPlan 2).col1)
         Index Searches: 1
-        Buffers: shared hit=8
+        Buffers: shared hit=7
 Planning:
   Buffers: shared hit=300
-Planning Time: 0.980 ms
-Execution Time: 0.803 ms
+Planning Time: 0.484 ms
+Execution Time: 0.670 ms
 === W02 run 2 ===
-Update on listings  (cost=8.74..16.76 rows=0 width=0) (actual time=0.372..0.373 rows=0.00 loops=1)
+Update on listings  (cost=4.74..12.76 rows=0 width=0) (actual time=0.203..0.203 rows=0.00 loops=1)
   Buffers: shared hit=100 dirtied=1
   InitPlan 2
-    ->  Result  (cost=8.44..8.45 rows=1 width=4) (actual time=0.055..0.056 rows=1.00 loops=1)
+    ->  Result  (cost=4.44..4.45 rows=1 width=4) (actual time=0.032..0.032 rows=1.00 loops=1)
           Buffers: shared hit=5
           InitPlan 1
-            ->  Limit  (cost=0.42..8.44 rows=1 width=4) (actual time=0.054..0.054 rows=1.00 loops=1)
+            ->  Limit  (cost=0.42..4.44 rows=1 width=4) (actual time=0.031..0.031 rows=1.00 loops=1)
                   Buffers: shared hit=5
-                  ->  Index Only Scan using idx_listings_seller_status_listing on listings listings_1  (cost=0.42..8.44 rows=1 width=4) (actual time=0.053..0.053 rows=1.00 loops=1)
+                  ->  Index Only Scan using idx_listings_seller_status_listing on listings listings_1  (cost=0.42..4.44 rows=1 width=4) (actual time=0.031..0.031 rows=1.00 loops=1)
                         Index Cond: ((seller_id = 1042) AND (status = 'ACTIVE'::text))
                         Heap Fetches: 1
                         Index Searches: 1
                         Buffers: shared hit=5
-  ->  Index Scan using listings_pkey on listings  (cost=0.29..8.31 rows=1 width=52) (actual time=0.074..0.075 rows=1.00 loops=1)
+  ->  Index Scan using listings_pkey on listings  (cost=0.29..8.31 rows=1 width=52) (actual time=0.043..0.043 rows=1.00 loops=1)
         Index Cond: (listing_id = (InitPlan 2).col1)
         Index Searches: 1
         Buffers: shared hit=10
 Planning:
   Buffers: shared hit=300
-Planning Time: 0.859 ms
-Execution Time: 0.453 ms
+Planning Time: 0.472 ms
+Execution Time: 0.245 ms
 === W02 run 3 ===
-Update on listings  (cost=8.74..16.76 rows=0 width=0) (actual time=0.385..0.385 rows=0.00 loops=1)
+Update on listings  (cost=4.74..12.76 rows=0 width=0) (actual time=0.220..0.220 rows=0.00 loops=1)
   Buffers: shared hit=100 dirtied=1
   InitPlan 2
-    ->  Result  (cost=8.44..8.45 rows=1 width=4) (actual time=0.056..0.056 rows=1.00 loops=1)
+    ->  Result  (cost=4.44..4.45 rows=1 width=4) (actual time=0.032..0.033 rows=1.00 loops=1)
           Buffers: shared hit=5
           InitPlan 1
-            ->  Limit  (cost=0.42..8.44 rows=1 width=4) (actual time=0.054..0.054 rows=1.00 loops=1)
+            ->  Limit  (cost=0.42..4.44 rows=1 width=4) (actual time=0.032..0.032 rows=1.00 loops=1)
                   Buffers: shared hit=5
-                  ->  Index Only Scan using idx_listings_seller_status_listing on listings listings_1  (cost=0.42..8.44 rows=1 width=4) (actual time=0.053..0.053 rows=1.00 loops=1)
+                  ->  Index Only Scan using idx_listings_seller_status_listing on listings listings_1  (cost=0.42..4.44 rows=1 width=4) (actual time=0.031..0.031 rows=1.00 loops=1)
                         Index Cond: ((seller_id = 1042) AND (status = 'ACTIVE'::text))
                         Heap Fetches: 1
                         Index Searches: 1
                         Buffers: shared hit=5
-  ->  Index Scan using listings_pkey on listings  (cost=0.29..8.31 rows=1 width=52) (actual time=0.074..0.075 rows=1.00 loops=1)
+  ->  Index Scan using listings_pkey on listings  (cost=0.29..8.31 rows=1 width=52) (actual time=0.045..0.045 rows=1.00 loops=1)
         Index Cond: (listing_id = (InitPlan 2).col1)
         Index Searches: 1
         Buffers: shared hit=10
 Planning:
   Buffers: shared hit=300
-Planning Time: 0.856 ms
-Execution Time: 0.464 ms
+Planning Time: 0.475 ms
+Execution Time: 0.264 ms

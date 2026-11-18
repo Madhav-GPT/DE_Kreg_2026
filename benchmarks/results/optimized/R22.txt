@@ -1,33 +1,33 @@
 === R22 run 1 ===
-Limit  (cost=0.42..4.43 rows=25 width=40) (actual time=0.018..0.024 rows=25.00 loops=1)
+Limit  (cost=0.42..4.43 rows=25 width=40) (actual time=0.009..0.013 rows=25.00 loops=1)
   Buffers: shared hit=5
-  ->  Index Scan using idx_listings_posted_listing on listings  (cost=0.42..11770.90 rows=73347 width=40) (actual time=0.017..0.022 rows=25.00 loops=1)
+  ->  Index Scan using idx_listings_posted_listing on listings  (cost=0.42..11219.69 rows=69915 width=40) (actual time=0.009..0.011 rows=25.00 loops=1)
         Index Cond: (ROW(posted_at, listing_id) < ROW('2025-11-16 07:06:36+05:30'::timestamp with time zone, 70176))
         Index Searches: 1
         Buffers: shared hit=5
 Planning:
   Buffers: shared hit=310
-Planning Time: 0.942 ms
-Execution Time: 0.051 ms
+Planning Time: 0.419 ms
+Execution Time: 0.027 ms
 === R22 run 2 ===
-Limit  (cost=0.42..4.43 rows=25 width=40) (actual time=0.017..0.024 rows=25.00 loops=1)
+Limit  (cost=0.42..4.43 rows=25 width=40) (actual time=0.009..0.013 rows=25.00 loops=1)
   Buffers: shared hit=5
-  ->  Index Scan using idx_listings_posted_listing on listings  (cost=0.42..11770.90 rows=73347 width=40) (actual time=0.017..0.022 rows=25.00 loops=1)
+  ->  Index Scan using idx_listings_posted_listing on listings  (cost=0.42..11219.69 rows=69915 width=40) (actual time=0.009..0.011 rows=25.00 loops=1)
         Index Cond: (ROW(posted_at, listing_id) < ROW('2025-11-16 07:06:36+05:30'::timestamp with time zone, 70176))
         Index Searches: 1
         Buffers: shared hit=5
 Planning:
   Buffers: shared hit=310
-Planning Time: 1.006 ms
-Execution Time: 0.052 ms
+Planning Time: 0.412 ms
+Execution Time: 0.026 ms
 === R22 run 3 ===
-Limit  (cost=0.42..4.43 rows=25 width=40) (actual time=0.015..0.021 rows=25.00 loops=1)
+Limit  (cost=0.42..4.43 rows=25 width=40) (actual time=0.009..0.012 rows=25.00 loops=1)
   Buffers: shared hit=5
-  ->  Index Scan using idx_listings_posted_listing on listings  (cost=0.42..11770.90 rows=73347 width=40) (actual time=0.014..0.019 rows=25.00 loops=1)
+  ->  Index Scan using idx_listings_posted_listing on listings  (cost=0.42..11219.69 rows=69915 width=40) (actual time=0.009..0.011 rows=25.00 loops=1)
         Index Cond: (ROW(posted_at, listing_id) < ROW('2025-11-16 07:06:36+05:30'::timestamp with time zone, 70176))
         Index Searches: 1
         Buffers: shared hit=5
 Planning:
   Buffers: shared hit=310
-Planning Time: 0.747 ms
-Execution Time: 0.046 ms
+Planning Time: 0.414 ms
+Execution Time: 0.027 ms

@@ -1,102 +1,102 @@
 === R11 run 1 ===
-Sort  (cost=4500.84..4501.52 rows=272 width=60) (actual time=5.591..5.594 rows=44.00 loops=1)
+Sort  (cost=4477.37..4478.05 rows=272 width=60) (actual time=1.552..1.553 rows=44.00 loops=1)
   Sort Key: (count(*)) DESC
   Sort Method: quicksort  Memory: 29kB
   Buffers: shared hit=1932
-  ->  GroupAggregate  (cost=6.02..4489.84 rows=272 width=60) (actual time=0.627..5.566 rows=44.00 loops=1)
+  ->  GroupAggregate  (cost=5.99..4466.37 rows=272 width=60) (actual time=0.103..1.542 rows=44.00 loops=1)
         Group Key: r.listing_id, l.title
         Filter: (count(*) >= 3)
         Rows Removed by Filter: 595
         Buffers: shared hit=1929
-        ->  Incremental Sort  (cost=6.02..4469.44 rows=816 width=29) (actual time=0.590..5.238 rows=816.00 loops=1)
+        ->  Incremental Sort  (cost=5.99..4445.97 rows=816 width=29) (actual time=0.091..1.395 rows=816.00 loops=1)
               Sort Key: r.listing_id, l.title, r.reason
               Presorted Key: r.listing_id
               Full-sort Groups: 26  Sort Method: quicksort  Average Memory: 26kB  Peak Memory: 26kB
               Buffers: shared hit=1929
-              ->  Nested Loop  (cost=0.58..4432.72 rows=816 width=29) (actual time=0.264..5.013 rows=816.00 loops=1)
+              ->  Nested Loop  (cost=0.58..4409.25 rows=816 width=29) (actual time=0.012..1.288 rows=816.00 loops=1)
                     Buffers: shared hit=1923
-                    ->  Index Only Scan using idx_reports_open_listing on reports r  (cost=0.28..48.51 rows=816 width=13) (actual time=0.019..0.082 rows=816.00 loops=1)
+                    ->  Index Only Scan using idx_reports_open_listing on reports r  (cost=0.28..36.52 rows=816 width=13) (actual time=0.006..0.036 rows=816.00 loops=1)
                           Heap Fetches: 0
                           Index Searches: 1
                           Buffers: shared hit=6
-                    ->  Memoize  (cost=0.30..5.60 rows=1 width=20) (actual time=0.006..0.006 rows=1.00 loops=816)
+                    ->  Memoize  (cost=0.30..5.59 rows=1 width=20) (actual time=0.001..0.001 rows=1.00 loops=816)
                           Cache Key: r.listing_id
                           Cache Mode: logical
                           Hits: 177  Misses: 639  Evictions: 0  Overflows: 0  Memory Usage: 77kB
                           Buffers: shared hit=1917
-                          ->  Index Scan using listings_pkey on listings l  (cost=0.29..5.59 rows=1 width=20) (actual time=0.007..0.007 rows=1.00 loops=639)
+                          ->  Index Scan using listings_pkey on listings l  (cost=0.29..5.58 rows=1 width=20) (actual time=0.002..0.002 rows=1.00 loops=639)
                                 Index Cond: (listing_id = r.listing_id)
                                 Index Searches: 639
                                 Buffers: shared hit=1917
 Planning:
-  Buffers: shared hit=439
-Planning Time: 2.567 ms
-Execution Time: 6.099 ms
+  Buffers: shared hit=438
+Planning Time: 0.690 ms
+Execution Time: 1.583 ms
 === R11 run 2 ===
-Sort  (cost=4500.84..4501.52 rows=272 width=60) (actual time=2.955..2.957 rows=44.00 loops=1)
+Sort  (cost=4477.37..4478.05 rows=272 width=60) (actual time=1.495..1.497 rows=44.00 loops=1)
   Sort Key: (count(*)) DESC
   Sort Method: quicksort  Memory: 29kB
   Buffers: shared hit=1932
-  ->  GroupAggregate  (cost=6.02..4489.84 rows=272 width=60) (actual time=0.192..2.934 rows=44.00 loops=1)
+  ->  GroupAggregate  (cost=5.99..4466.37 rows=272 width=60) (actual time=0.091..1.486 rows=44.00 loops=1)
         Group Key: r.listing_id, l.title
         Filter: (count(*) >= 3)
         Rows Removed by Filter: 595
         Buffers: shared hit=1929
-        ->  Incremental Sort  (cost=6.02..4469.44 rows=816 width=29) (actual time=0.167..2.637 rows=816.00 loops=1)
+        ->  Incremental Sort  (cost=5.99..4445.97 rows=816 width=29) (actual time=0.079..1.339 rows=816.00 loops=1)
               Sort Key: r.listing_id, l.title, r.reason
               Presorted Key: r.listing_id
               Full-sort Groups: 26  Sort Method: quicksort  Average Memory: 26kB  Peak Memory: 26kB
               Buffers: shared hit=1929
-              ->  Nested Loop  (cost=0.58..4432.72 rows=816 width=29) (actual time=0.031..2.441 rows=816.00 loops=1)
+              ->  Nested Loop  (cost=0.58..4409.25 rows=816 width=29) (actual time=0.011..1.243 rows=816.00 loops=1)
                     Buffers: shared hit=1923
-                    ->  Index Only Scan using idx_reports_open_listing on reports r  (cost=0.28..48.51 rows=816 width=13) (actual time=0.014..0.068 rows=816.00 loops=1)
+                    ->  Index Only Scan using idx_reports_open_listing on reports r  (cost=0.28..36.52 rows=816 width=13) (actual time=0.004..0.029 rows=816.00 loops=1)
                           Heap Fetches: 0
                           Index Searches: 1
                           Buffers: shared hit=6
-                    ->  Memoize  (cost=0.30..5.60 rows=1 width=20) (actual time=0.003..0.003 rows=1.00 loops=816)
+                    ->  Memoize  (cost=0.30..5.59 rows=1 width=20) (actual time=0.001..0.001 rows=1.00 loops=816)
                           Cache Key: r.listing_id
                           Cache Mode: logical
                           Hits: 177  Misses: 639  Evictions: 0  Overflows: 0  Memory Usage: 77kB
                           Buffers: shared hit=1917
-                          ->  Index Scan using listings_pkey on listings l  (cost=0.29..5.59 rows=1 width=20) (actual time=0.003..0.003 rows=1.00 loops=639)
+                          ->  Index Scan using listings_pkey on listings l  (cost=0.29..5.58 rows=1 width=20) (actual time=0.002..0.002 rows=1.00 loops=639)
                                 Index Cond: (listing_id = r.listing_id)
                                 Index Searches: 639
                                 Buffers: shared hit=1917
 Planning:
-  Buffers: shared hit=439
-Planning Time: 1.352 ms
-Execution Time: 3.025 ms
+  Buffers: shared hit=438
+Planning Time: 0.638 ms
+Execution Time: 1.526 ms
 === R11 run 3 ===
-Sort  (cost=4500.84..4501.52 rows=272 width=60) (actual time=2.884..2.886 rows=44.00 loops=1)
+Sort  (cost=4477.37..4478.05 rows=272 width=60) (actual time=1.523..1.524 rows=44.00 loops=1)
   Sort Key: (count(*)) DESC
   Sort Method: quicksort  Memory: 29kB
   Buffers: shared hit=1932
-  ->  GroupAggregate  (cost=6.02..4489.84 rows=272 width=60) (actual time=0.184..2.865 rows=44.00 loops=1)
+  ->  GroupAggregate  (cost=5.99..4466.37 rows=272 width=60) (actual time=0.093..1.512 rows=44.00 loops=1)
         Group Key: r.listing_id, l.title
         Filter: (count(*) >= 3)
         Rows Removed by Filter: 595
         Buffers: shared hit=1929
-        ->  Incremental Sort  (cost=6.02..4469.44 rows=816 width=29) (actual time=0.159..2.568 rows=816.00 loops=1)
+        ->  Incremental Sort  (cost=5.99..4445.97 rows=816 width=29) (actual time=0.081..1.365 rows=816.00 loops=1)
               Sort Key: r.listing_id, l.title, r.reason
               Presorted Key: r.listing_id
               Full-sort Groups: 26  Sort Method: quicksort  Average Memory: 26kB  Peak Memory: 26kB
               Buffers: shared hit=1929
-              ->  Nested Loop  (cost=0.58..4432.72 rows=816 width=29) (actual time=0.029..2.372 rows=816.00 loops=1)
+              ->  Nested Loop  (cost=0.58..4409.25 rows=816 width=29) (actual time=0.011..1.268 rows=816.00 loops=1)
                     Buffers: shared hit=1923
-                    ->  Index Only Scan using idx_reports_open_listing on reports r  (cost=0.28..48.51 rows=816 width=13) (actual time=0.014..0.064 rows=816.00 loops=1)
+                    ->  Index Only Scan using idx_reports_open_listing on reports r  (cost=0.28..36.52 rows=816 width=13) (actual time=0.004..0.030 rows=816.00 loops=1)
                           Heap Fetches: 0
                           Index Searches: 1
                           Buffers: shared hit=6
-                    ->  Memoize  (cost=0.30..5.60 rows=1 width=20) (actual time=0.003..0.003 rows=1.00 loops=816)
+                    ->  Memoize  (cost=0.30..5.59 rows=1 width=20) (actual time=0.001..0.001 rows=1.00 loops=816)
                           Cache Key: r.listing_id
                           Cache Mode: logical
                           Hits: 177  Misses: 639  Evictions: 0  Overflows: 0  Memory Usage: 77kB
                           Buffers: shared hit=1917
-                          ->  Index Scan using listings_pkey on listings l  (cost=0.29..5.59 rows=1 width=20) (actual time=0.003..0.003 rows=1.00 loops=639)
+                          ->  Index Scan using listings_pkey on listings l  (cost=0.29..5.58 rows=1 width=20) (actual time=0.002..0.002 rows=1.00 loops=639)
                                 Index Cond: (listing_id = r.listing_id)
                                 Index Searches: 639
                                 Buffers: shared hit=1917
 Planning:
-  Buffers: shared hit=439
-Planning Time: 1.206 ms
-Execution Time: 2.966 ms
+  Buffers: shared hit=438
+Planning Time: 0.648 ms
+Execution Time: 1.553 ms
