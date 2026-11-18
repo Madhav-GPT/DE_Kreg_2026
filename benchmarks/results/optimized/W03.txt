@@ -1,60 +1,63 @@
 === W03 run 1 ===
-Insert on chat_messages  (cost=2.31..2.33 rows=0 width=0) (actual time=0.472..0.474 rows=0 loops=1)
+Insert on chat_messages  (cost=2.31..2.33 rows=0 width=0) (actual time=0.303..0.303 rows=0.00 loops=1)
   Buffers: shared hit=77 dirtied=2
-  ->  Subquery Scan on "*SELECT*"  (cost=2.31..2.33 rows=1 width=53) (actual time=0.070..0.073 rows=1 loops=1)
+  ->  Subquery Scan on "*SELECT*"  (cost=2.31..2.33 rows=1 width=53) (actual time=0.062..0.062 rows=1.00 loops=1)
         Buffers: shared hit=3
-        ->  Result  (cost=2.31..2.32 rows=1 width=76) (actual time=0.067..0.069 rows=1 loops=1)
+        ->  Result  (cost=2.31..2.32 rows=1 width=76) (actual time=0.059..0.059 rows=1.00 loops=1)
               Buffers: shared hit=3
-              InitPlan 1 (returns $0)
-                ->  Limit  (cost=0.29..2.31 rows=1 width=4) (actual time=0.065..0.065 rows=1 loops=1)
+              InitPlan 1
+                ->  Limit  (cost=0.29..2.31 rows=1 width=4) (actual time=0.057..0.057 rows=1.00 loops=1)
                       Buffers: shared hit=3
-                      ->  Index Only Scan Backward using idx_threads_buyer on chat_threads  (cost=0.29..4.33 rows=2 width=4) (actual time=0.064..0.064 rows=1 loops=1)
-                            Index Cond: ((buyer_id = 1042) AND (thread_id IS NOT NULL))
+                      ->  Index Only Scan Backward using idx_threads_buyer on chat_threads  (cost=0.29..4.32 rows=2 width=4) (actual time=0.056..0.056 rows=1.00 loops=1)
+                            Index Cond: (buyer_id = 1042)
                             Heap Fetches: 0
+                            Index Searches: 1
                             Buffers: shared hit=3
 Planning:
-  Buffers: shared hit=111
-Planning Time: 0.567 ms
-Trigger for constraint chat_messages_thread_id_fkey: time=0.325 calls=1
-Trigger for constraint chat_messages_sender_id_fkey: time=0.515 calls=1
-Execution Time: 1.361 ms
+  Buffers: shared hit=114
+Planning Time: 0.458 ms
+Trigger for constraint chat_messages_thread_id_fkey: time=0.135 calls=1
+Trigger for constraint chat_messages_sender_id_fkey: time=0.274 calls=1
+Execution Time: 0.757 ms
 === W03 run 2 ===
-Insert on chat_messages  (cost=2.31..2.33 rows=0 width=0) (actual time=0.316..0.317 rows=0 loops=1)
-  Buffers: shared hit=77
-  ->  Subquery Scan on "*SELECT*"  (cost=2.31..2.33 rows=1 width=53) (actual time=0.069..0.070 rows=1 loops=1)
+Insert on chat_messages  (cost=2.31..2.33 rows=0 width=0) (actual time=0.238..0.239 rows=0.00 loops=1)
+  Buffers: shared hit=77 dirtied=1
+  ->  Subquery Scan on "*SELECT*"  (cost=2.31..2.33 rows=1 width=53) (actual time=0.047..0.048 rows=1.00 loops=1)
         Buffers: shared hit=3
-        ->  Result  (cost=2.31..2.32 rows=1 width=76) (actual time=0.066..0.067 rows=1 loops=1)
+        ->  Result  (cost=2.31..2.32 rows=1 width=76) (actual time=0.045..0.045 rows=1.00 loops=1)
               Buffers: shared hit=3
-              InitPlan 1 (returns $0)
-                ->  Limit  (cost=0.29..2.31 rows=1 width=4) (actual time=0.063..0.064 rows=1 loops=1)
+              InitPlan 1
+                ->  Limit  (cost=0.29..2.31 rows=1 width=4) (actual time=0.043..0.043 rows=1.00 loops=1)
                       Buffers: shared hit=3
-                      ->  Index Only Scan Backward using idx_threads_buyer on chat_threads  (cost=0.29..4.33 rows=2 width=4) (actual time=0.062..0.063 rows=1 loops=1)
-                            Index Cond: ((buyer_id = 1042) AND (thread_id IS NOT NULL))
+                      ->  Index Only Scan Backward using idx_threads_buyer on chat_threads  (cost=0.29..4.32 rows=2 width=4) (actual time=0.043..0.043 rows=1.00 loops=1)
+                            Index Cond: (buyer_id = 1042)
                             Heap Fetches: 0
+                            Index Searches: 1
                             Buffers: shared hit=3
 Planning:
-  Buffers: shared hit=111
-Planning Time: 0.736 ms
-Trigger for constraint chat_messages_thread_id_fkey: time=0.163 calls=1
-Trigger for constraint chat_messages_sender_id_fkey: time=0.700 calls=1
-Execution Time: 1.233 ms
+  Buffers: shared hit=114
+Planning Time: 0.389 ms
+Trigger for constraint chat_messages_thread_id_fkey: time=0.146 calls=1
+Trigger for constraint chat_messages_sender_id_fkey: time=0.259 calls=1
+Execution Time: 0.688 ms
 === W03 run 3 ===
-Insert on chat_messages  (cost=2.31..2.33 rows=0 width=0) (actual time=0.583..0.585 rows=0 loops=1)
-  Buffers: shared hit=77
-  ->  Subquery Scan on "*SELECT*"  (cost=2.31..2.33 rows=1 width=53) (actual time=0.121..0.123 rows=1 loops=1)
+Insert on chat_messages  (cost=2.31..2.33 rows=0 width=0) (actual time=0.222..0.223 rows=0.00 loops=1)
+  Buffers: shared hit=77 dirtied=1
+  ->  Subquery Scan on "*SELECT*"  (cost=2.31..2.33 rows=1 width=53) (actual time=0.046..0.047 rows=1.00 loops=1)
         Buffers: shared hit=3
-        ->  Result  (cost=2.31..2.32 rows=1 width=76) (actual time=0.115..0.116 rows=1 loops=1)
+        ->  Result  (cost=2.31..2.32 rows=1 width=76) (actual time=0.043..0.044 rows=1.00 loops=1)
               Buffers: shared hit=3
-              InitPlan 1 (returns $0)
-                ->  Limit  (cost=0.29..2.31 rows=1 width=4) (actual time=0.110..0.111 rows=1 loops=1)
+              InitPlan 1
+                ->  Limit  (cost=0.29..2.31 rows=1 width=4) (actual time=0.041..0.041 rows=1.00 loops=1)
                       Buffers: shared hit=3
-                      ->  Index Only Scan Backward using idx_threads_buyer on chat_threads  (cost=0.29..4.33 rows=2 width=4) (actual time=0.110..0.110 rows=1 loops=1)
-                            Index Cond: ((buyer_id = 1042) AND (thread_id IS NOT NULL))
+                      ->  Index Only Scan Backward using idx_threads_buyer on chat_threads  (cost=0.29..4.32 rows=2 width=4) (actual time=0.041..0.041 rows=1.00 loops=1)
+                            Index Cond: (buyer_id = 1042)
                             Heap Fetches: 0
+                            Index Searches: 1
                             Buffers: shared hit=3
 Planning:
-  Buffers: shared hit=111
-Planning Time: 1.117 ms
-Trigger for constraint chat_messages_thread_id_fkey: time=0.250 calls=1
-Trigger for constraint chat_messages_sender_id_fkey: time=0.336 calls=1
-Execution Time: 1.254 ms
+  Buffers: shared hit=114
+Planning Time: 0.385 ms
+Trigger for constraint chat_messages_thread_id_fkey: time=0.106 calls=1
+Trigger for constraint chat_messages_sender_id_fkey: time=0.291 calls=1
+Execution Time: 0.663 ms

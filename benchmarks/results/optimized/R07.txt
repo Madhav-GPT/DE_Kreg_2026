@@ -1,66 +1,75 @@
 === R07 run 1 ===
-Aggregate  (cost=1356.75..1356.76 rows=1 width=8) (actual time=3.280..3.281 rows=1 loops=1)
-  Buffers: shared hit=1789
-  ->  Nested Loop  (cost=0.73..1356.74 rows=1 width=0) (actual time=3.274..3.275 rows=0 loops=1)
-        Buffers: shared hit=1789
-        ->  Nested Loop  (cost=0.43..1228.12 rows=203 width=8) (actual time=0.032..2.783 rows=258 loops=1)
-              Buffers: shared hit=1015
-              ->  Index Scan using idx_msgs_unread_thread on chat_messages m  (cost=0.14..17.70 rows=203 width=4) (actual time=0.022..1.245 rows=258 loops=1)
+Aggregate  (cost=1429.17..1429.18 rows=1 width=8) (actual time=2.793..2.794 rows=1.00 loops=1)
+  Buffers: shared hit=1793 dirtied=1
+  ->  Nested Loop  (cost=0.73..1429.17 rows=1 width=0) (actual time=2.789..2.790 rows=0.00 loops=1)
+        Buffers: shared hit=1793 dirtied=1
+        ->  Nested Loop  (cost=0.43..1288.77 rows=217 width=8) (actual time=0.019..2.456 rows=258.00 loops=1)
+              Buffers: shared hit=1019 dirtied=1
+              ->  Index Scan using idx_msgs_unread_thread on chat_messages m  (cost=0.14..18.05 rows=217 width=4) (actual time=0.012..1.080 rows=258.00 loops=1)
                     Filter: (sender_id <> 1042)
-                    Buffers: shared hit=241
-              ->  Index Scan using chat_threads_pkey on chat_threads t  (cost=0.29..5.96 rows=1 width=12) (actual time=0.006..0.006 rows=1 loops=258)
+                    Index Searches: 1
+                    Buffers: shared hit=245 dirtied=1
+              ->  Index Scan using chat_threads_pkey on chat_threads t  (cost=0.29..5.86 rows=1 width=12) (actual time=0.005..0.005 rows=1.00 loops=258)
                     Index Cond: (thread_id = m.thread_id)
+                    Index Searches: 258
                     Buffers: shared hit=774
-        ->  Index Scan using listings_pkey on listings l  (cost=0.29..0.62 rows=1 width=8) (actual time=0.002..0.002 rows=0 loops=258)
+        ->  Index Scan using listings_pkey on listings l  (cost=0.29..0.64 rows=1 width=8) (actual time=0.001..0.001 rows=0.00 loops=258)
               Index Cond: (listing_id = t.listing_id)
               Filter: ((t.buyer_id = 1042) OR (seller_id = 1042))
               Rows Removed by Filter: 1
+              Index Searches: 258
               Buffers: shared hit=774
 Planning:
-  Buffers: shared hit=508
-Planning Time: 2.881 ms
-Execution Time: 3.366 ms
+  Buffers: shared hit=523
+Planning Time: 1.769 ms
+Execution Time: 2.886 ms
 === R07 run 2 ===
-Aggregate  (cost=1356.75..1356.76 rows=1 width=8) (actual time=1.830..1.831 rows=1 loops=1)
+Aggregate  (cost=1429.17..1429.18 rows=1 width=8) (actual time=1.397..1.398 rows=1.00 loops=1)
   Buffers: shared hit=1789
-  ->  Nested Loop  (cost=0.73..1356.74 rows=1 width=0) (actual time=1.822..1.823 rows=0 loops=1)
+  ->  Nested Loop  (cost=0.73..1429.17 rows=1 width=0) (actual time=1.393..1.394 rows=0.00 loops=1)
         Buffers: shared hit=1789
-        ->  Nested Loop  (cost=0.43..1228.12 rows=203 width=8) (actual time=0.018..1.427 rows=258 loops=1)
+        ->  Nested Loop  (cost=0.43..1288.77 rows=217 width=8) (actual time=0.013..1.089 rows=258.00 loops=1)
               Buffers: shared hit=1015
-              ->  Index Scan using idx_msgs_unread_thread on chat_messages m  (cost=0.14..17.70 rows=203 width=4) (actual time=0.011..0.509 rows=258 loops=1)
+              ->  Index Scan using idx_msgs_unread_thread on chat_messages m  (cost=0.14..18.05 rows=217 width=4) (actual time=0.008..0.393 rows=258.00 loops=1)
                     Filter: (sender_id <> 1042)
+                    Index Searches: 1
                     Buffers: shared hit=241
-              ->  Index Scan using chat_threads_pkey on chat_threads t  (cost=0.29..5.96 rows=1 width=12) (actual time=0.003..0.003 rows=1 loops=258)
+              ->  Index Scan using chat_threads_pkey on chat_threads t  (cost=0.29..5.86 rows=1 width=12) (actual time=0.003..0.003 rows=1.00 loops=258)
                     Index Cond: (thread_id = m.thread_id)
+                    Index Searches: 258
                     Buffers: shared hit=774
-        ->  Index Scan using listings_pkey on listings l  (cost=0.29..0.62 rows=1 width=8) (actual time=0.001..0.001 rows=0 loops=258)
+        ->  Index Scan using listings_pkey on listings l  (cost=0.29..0.64 rows=1 width=8) (actual time=0.001..0.001 rows=0.00 loops=258)
               Index Cond: (listing_id = t.listing_id)
               Filter: ((t.buyer_id = 1042) OR (seller_id = 1042))
               Rows Removed by Filter: 1
+              Index Searches: 258
               Buffers: shared hit=774
 Planning:
-  Buffers: shared hit=508
-Planning Time: 2.048 ms
-Execution Time: 1.900 ms
+  Buffers: shared hit=523
+Planning Time: 3.966 ms
+Execution Time: 1.466 ms
 === R07 run 3 ===
-Aggregate  (cost=1356.75..1356.76 rows=1 width=8) (actual time=2.368..2.369 rows=1 loops=1)
+Aggregate  (cost=1429.17..1429.18 rows=1 width=8) (actual time=1.443..1.444 rows=1.00 loops=1)
   Buffers: shared hit=1789
-  ->  Nested Loop  (cost=0.73..1356.74 rows=1 width=0) (actual time=2.361..2.362 rows=0 loops=1)
+  ->  Nested Loop  (cost=0.73..1429.17 rows=1 width=0) (actual time=1.440..1.440 rows=0.00 loops=1)
         Buffers: shared hit=1789
-        ->  Nested Loop  (cost=0.43..1228.12 rows=203 width=8) (actual time=0.018..1.818 rows=258 loops=1)
+        ->  Nested Loop  (cost=0.43..1288.77 rows=217 width=8) (actual time=0.012..1.134 rows=258.00 loops=1)
               Buffers: shared hit=1015
-              ->  Index Scan using idx_msgs_unread_thread on chat_messages m  (cost=0.14..17.70 rows=203 width=4) (actual time=0.010..0.650 rows=258 loops=1)
+              ->  Index Scan using idx_msgs_unread_thread on chat_messages m  (cost=0.14..18.05 rows=217 width=4) (actual time=0.007..0.395 rows=258.00 loops=1)
                     Filter: (sender_id <> 1042)
+                    Index Searches: 1
                     Buffers: shared hit=241
-              ->  Index Scan using chat_threads_pkey on chat_threads t  (cost=0.29..5.96 rows=1 width=12) (actual time=0.004..0.004 rows=1 loops=258)
+              ->  Index Scan using chat_threads_pkey on chat_threads t  (cost=0.29..5.86 rows=1 width=12) (actual time=0.003..0.003 rows=1.00 loops=258)
                     Index Cond: (thread_id = m.thread_id)
+                    Index Searches: 258
                     Buffers: shared hit=774
-        ->  Index Scan using listings_pkey on listings l  (cost=0.29..0.62 rows=1 width=8) (actual time=0.002..0.002 rows=0 loops=258)
+        ->  Index Scan using listings_pkey on listings l  (cost=0.29..0.64 rows=1 width=8) (actual time=0.001..0.001 rows=0.00 loops=258)
               Index Cond: (listing_id = t.listing_id)
               Filter: ((t.buyer_id = 1042) OR (seller_id = 1042))
               Rows Removed by Filter: 1
+              Index Searches: 258
               Buffers: shared hit=774
 Planning:
-  Buffers: shared hit=508
-Planning Time: 1.830 ms
-Execution Time: 2.435 ms
+  Buffers: shared hit=523
+Planning Time: 1.468 ms
+Execution Time: 1.504 ms

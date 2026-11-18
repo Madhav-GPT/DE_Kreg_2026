@@ -1,162 +1,141 @@
 === R25 run 1 ===
-Sort  (cost=23341.79..23341.82 rows=12 width=49) (actual time=81.316..81.347 rows=9 loops=1)
+Sort  (cost=16909.68..16909.71 rows=12 width=49) (actual time=103.255..103.257 rows=9.00 loops=1)
   Sort Key: (round(avg((EXTRACT(epoch FROM ((min(m.sent_at) FILTER (WHERE (m.sender_id = l.seller_id))) - (min(m.sent_at) FILTER (WHERE (m.sender_id = t.buyer_id))))) / '60'::numeric)), 1))
   Sort Method: quicksort  Memory: 25kB
-  Buffers: shared hit=6654
-  ->  HashAggregate  (cost=23341.39..23341.57 rows=12 width=49) (actual time=81.293..81.327 rows=9 loops=1)
+  Buffers: shared hit=7006
+  ->  HashAggregate  (cost=16909.29..16909.47 rows=12 width=49) (actual time=103.236..103.241 rows=9.00 loops=1)
         Group Key: c.category_name
-        Batches: 1  Memory Usage: 24kB
-        Buffers: shared hit=6651
-        ->  Hash Join  (cost=8713.32..23267.56 rows=4922 width=25) (actual time=29.036..74.640 rows=19618 loops=1)
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=7003
+        ->  Hash Join  (cost=14970.49..16835.44 rows=4923 width=25) (actual time=92.767..97.782 rows=19618.00 loops=1)
               Hash Cond: (l.category_id = c.category_id)
-              Buffers: shared hit=6651
-              ->  GroupAggregate  (cost=8712.05..22226.05 rows=82034 width=22) (actual time=29.012..72.097 rows=19618 loops=1)
+              Buffers: shared hit=7003
+              ->  HashAggregate  (cost=14969.22..15793.79 rows=82045 width=22) (actual time=92.750..95.375 rows=19618.00 loops=1)
                     Group Key: t.thread_id, l.category_id
                     Filter: (min(m.sent_at) FILTER (WHERE (m.sender_id = l.seller_id)) IS NOT NULL)
+                    Batches: 1  Memory Usage: 2585kB
                     Rows Removed by Filter: 3912
-                    Buffers: shared hit=6650
-                    ->  Merge Join  (cost=8712.05..20164.90 rows=82446 width=26) (actual time=29.004..61.020 rows=82289 loops=1)
-                          Merge Cond: (t.thread_id = m.thread_id)
-                          Buffers: shared hit=6650
-                          ->  Gather Merge  (cost=8711.37..11454.38 rows=23552 width=14) (actual time=28.984..32.292 rows=23530 loops=1)
-                                Workers Planned: 2
-                                Workers Launched: 2
-                                Buffers: shared hit=5614
-                                ->  Sort  (cost=7711.34..7735.88 rows=9813 width=14) (actual time=24.720..25.251 rows=7843 loops=3)
-                                      Sort Key: t.thread_id, l.category_id
-                                      Sort Method: quicksort  Memory: 810kB
-                                      Buffers: shared hit=5614
-                                      Worker 0:  Sort Method: quicksort  Memory: 441kB
-                                      Worker 1:  Sort Method: quicksort  Memory: 438kB
-                                      ->  Hash Join  (cost=1424.59..7060.72 rows=9813 width=14) (actual time=10.520..23.123 rows=7843 loops=3)
-                                            Hash Cond: (l.listing_id = t.listing_id)
-                                            Buffers: shared hit=5528
-                                            ->  Parallel Seq Scan on listings l  (cost=0.00..4788.00 rows=50000 width=10) (actual time=0.011..3.621 rows=40000 loops=3)
-                                                  Buffers: shared hit=4288
-                                            ->  Hash  (cost=1130.19..1130.19 rows=23552 width=12) (actual time=10.416..10.417 rows=23530 loops=3)
-                                                  Buckets: 32768  Batches: 1  Memory Usage: 1268kB
-                                                  Buffers: shared hit=1146
-                                                  ->  Seq Scan on chat_threads t  (cost=0.00..1130.19 rows=23552 width=12) (actual time=0.054..6.269 rows=23530 loops=3)
-                                                        Filter: (created_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone)
-                                                        Rows Removed by Filter: 36325
-                                                        Buffers: shared hit=1146
-                          ->  Index Only Scan using idx_msgs_thread_sent on chat_messages m  (cost=0.42..7303.36 rows=209529 width=16) (actual time=0.015..14.612 rows=209523 loops=1)
-                                Heap Fetches: 0
-                                Buffers: shared hit=1036
-              ->  Hash  (cost=1.12..1.12 rows=12 width=11) (actual time=0.015..0.015 rows=12 loops=1)
+                    Buffers: shared hit=7002
+                    ->  Hash Join  (cost=8738.56..13732.37 rows=82457 width=26) (actual time=33.018..79.483 rows=82289.00 loops=1)
+                          Hash Cond: (t.listing_id = l.listing_id)
+                          Buffers: shared hit=7002
+                          ->  Hash Join  (cost=1424.62..6201.97 rows=82457 width=24) (actual time=5.943..38.663 rows=82289.00 loops=1)
+                                Hash Cond: (m.thread_id = t.thread_id)
+                                Buffers: shared hit=2514
+                                ->  Seq Scan on chat_messages m  (cost=0.00..4227.29 rows=209529 width=16) (actual time=0.007..11.936 rows=209529.00 loops=1)
+                                      Buffers: shared hit=2132
+                                ->  Hash  (cost=1130.19..1130.19 rows=23555 width=12) (actual time=5.883..5.883 rows=23530.00 loops=1)
+                                      Buckets: 32768  Batches: 1  Memory Usage: 1268kB
+                                      Buffers: shared hit=382
+                                      ->  Seq Scan on chat_threads t  (cost=0.00..1130.19 rows=23555 width=12) (actual time=0.006..3.846 rows=23530.00 loops=1)
+                                            Filter: (created_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone)
+                                            Rows Removed by Filter: 36325
+                                            Buffers: shared hit=382
+                          ->  Hash  (cost=5743.97..5743.97 rows=125597 width=10) (actual time=26.975..26.975 rows=120000.00 loops=1)
+                                Buckets: 131072  Batches: 1  Memory Usage: 6181kB
+                                Buffers: shared hit=4488
+                                ->  Seq Scan on listings l  (cost=0.00..5743.97 rows=125597 width=10) (actual time=0.007..17.760 rows=120000.00 loops=1)
+                                      Buffers: shared hit=4488
+              ->  Hash  (cost=1.12..1.12 rows=12 width=11) (actual time=0.010..0.010 rows=12.00 loops=1)
                     Buckets: 1024  Batches: 1  Memory Usage: 9kB
                     Buffers: shared hit=1
-                    ->  Seq Scan on categories c  (cost=0.00..1.12 rows=12 width=11) (actual time=0.008..0.009 rows=12 loops=1)
+                    ->  Seq Scan on categories c  (cost=0.00..1.12 rows=12 width=11) (actual time=0.005..0.006 rows=12.00 loops=1)
                           Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=523
-Planning Time: 4.645 ms
-Execution Time: 81.479 ms
+  Buffers: shared hit=542
+Planning Time: 1.720 ms
+Execution Time: 103.497 ms
 === R25 run 2 ===
-Sort  (cost=23341.79..23341.82 rows=12 width=49) (actual time=74.628..74.659 rows=9 loops=1)
+Sort  (cost=16909.68..16909.71 rows=12 width=49) (actual time=99.561..99.564 rows=9.00 loops=1)
   Sort Key: (round(avg((EXTRACT(epoch FROM ((min(m.sent_at) FILTER (WHERE (m.sender_id = l.seller_id))) - (min(m.sent_at) FILTER (WHERE (m.sender_id = t.buyer_id))))) / '60'::numeric)), 1))
   Sort Method: quicksort  Memory: 25kB
-  Buffers: shared hit=6654
-  ->  HashAggregate  (cost=23341.39..23341.57 rows=12 width=49) (actual time=74.610..74.644 rows=9 loops=1)
+  Buffers: shared hit=7006
+  ->  HashAggregate  (cost=16909.29..16909.47 rows=12 width=49) (actual time=99.543..99.548 rows=9.00 loops=1)
         Group Key: c.category_name
-        Batches: 1  Memory Usage: 24kB
-        Buffers: shared hit=6651
-        ->  Hash Join  (cost=8713.32..23267.56 rows=4922 width=25) (actual time=22.666..67.810 rows=19618 loops=1)
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=7003
+        ->  Hash Join  (cost=14970.49..16835.44 rows=4923 width=25) (actual time=89.377..94.156 rows=19618.00 loops=1)
               Hash Cond: (l.category_id = c.category_id)
-              Buffers: shared hit=6651
-              ->  GroupAggregate  (cost=8712.05..22226.05 rows=82034 width=22) (actual time=22.646..65.146 rows=19618 loops=1)
+              Buffers: shared hit=7003
+              ->  HashAggregate  (cost=14969.22..15793.79 rows=82045 width=22) (actual time=89.362..91.720 rows=19618.00 loops=1)
                     Group Key: t.thread_id, l.category_id
                     Filter: (min(m.sent_at) FILTER (WHERE (m.sender_id = l.seller_id)) IS NOT NULL)
+                    Batches: 1  Memory Usage: 2585kB
                     Rows Removed by Filter: 3912
-                    Buffers: shared hit=6650
-                    ->  Merge Join  (cost=8712.05..20164.90 rows=82446 width=26) (actual time=22.639..53.919 rows=82289 loops=1)
-                          Merge Cond: (t.thread_id = m.thread_id)
-                          Buffers: shared hit=6650
-                          ->  Gather Merge  (cost=8711.37..11454.38 rows=23552 width=14) (actual time=22.624..26.183 rows=23530 loops=1)
-                                Workers Planned: 2
-                                Workers Launched: 2
-                                Buffers: shared hit=5614
-                                ->  Sort  (cost=7711.34..7735.88 rows=9813 width=14) (actual time=19.995..20.665 rows=7843 loops=3)
-                                      Sort Key: t.thread_id, l.category_id
-                                      Sort Method: quicksort  Memory: 818kB
-                                      Buffers: shared hit=5614
-                                      Worker 0:  Sort Method: quicksort  Memory: 434kB
-                                      Worker 1:  Sort Method: quicksort  Memory: 436kB
-                                      ->  Hash Join  (cost=1424.59..7060.72 rows=9813 width=14) (actual time=7.151..18.455 rows=7843 loops=3)
-                                            Hash Cond: (l.listing_id = t.listing_id)
-                                            Buffers: shared hit=5528
-                                            ->  Parallel Seq Scan on listings l  (cost=0.00..4788.00 rows=50000 width=10) (actual time=0.007..3.458 rows=40000 loops=3)
-                                                  Buffers: shared hit=4288
-                                            ->  Hash  (cost=1130.19..1130.19 rows=23552 width=12) (actual time=7.085..7.085 rows=23530 loops=3)
-                                                  Buckets: 32768  Batches: 1  Memory Usage: 1268kB
-                                                  Buffers: shared hit=1146
-                                                  ->  Seq Scan on chat_threads t  (cost=0.00..1130.19 rows=23552 width=12) (actual time=0.025..4.593 rows=23530 loops=3)
-                                                        Filter: (created_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone)
-                                                        Rows Removed by Filter: 36325
-                                                        Buffers: shared hit=1146
-                          ->  Index Only Scan using idx_msgs_thread_sent on chat_messages m  (cost=0.42..7303.36 rows=209529 width=16) (actual time=0.010..13.410 rows=209523 loops=1)
-                                Heap Fetches: 0
-                                Buffers: shared hit=1036
-              ->  Hash  (cost=1.12..1.12 rows=12 width=11) (actual time=0.012..0.012 rows=12 loops=1)
+                    Buffers: shared hit=7002
+                    ->  Hash Join  (cost=8738.56..13732.37 rows=82457 width=26) (actual time=32.773..76.252 rows=82289.00 loops=1)
+                          Hash Cond: (t.listing_id = l.listing_id)
+                          Buffers: shared hit=7002
+                          ->  Hash Join  (cost=1424.62..6201.97 rows=82457 width=24) (actual time=5.924..36.085 rows=82289.00 loops=1)
+                                Hash Cond: (m.thread_id = t.thread_id)
+                                Buffers: shared hit=2514
+                                ->  Seq Scan on chat_messages m  (cost=0.00..4227.29 rows=209529 width=16) (actual time=0.004..9.589 rows=209529.00 loops=1)
+                                      Buffers: shared hit=2132
+                                ->  Hash  (cost=1130.19..1130.19 rows=23555 width=12) (actual time=5.891..5.891 rows=23530.00 loops=1)
+                                      Buckets: 32768  Batches: 1  Memory Usage: 1268kB
+                                      Buffers: shared hit=382
+                                      ->  Seq Scan on chat_threads t  (cost=0.00..1130.19 rows=23555 width=12) (actual time=0.006..3.792 rows=23530.00 loops=1)
+                                            Filter: (created_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone)
+                                            Rows Removed by Filter: 36325
+                                            Buffers: shared hit=382
+                          ->  Hash  (cost=5743.97..5743.97 rows=125597 width=10) (actual time=26.756..26.756 rows=120000.00 loops=1)
+                                Buckets: 131072  Batches: 1  Memory Usage: 6181kB
+                                Buffers: shared hit=4488
+                                ->  Seq Scan on listings l  (cost=0.00..5743.97 rows=125597 width=10) (actual time=0.009..17.397 rows=120000.00 loops=1)
+                                      Buffers: shared hit=4488
+              ->  Hash  (cost=1.12..1.12 rows=12 width=11) (actual time=0.010..0.010 rows=12.00 loops=1)
                     Buckets: 1024  Batches: 1  Memory Usage: 9kB
                     Buffers: shared hit=1
-                    ->  Seq Scan on categories c  (cost=0.00..1.12 rows=12 width=11) (actual time=0.004..0.005 rows=12 loops=1)
+                    ->  Seq Scan on categories c  (cost=0.00..1.12 rows=12 width=11) (actual time=0.004..0.005 rows=12.00 loops=1)
                           Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=523
-Planning Time: 1.722 ms
-Execution Time: 74.753 ms
+  Buffers: shared hit=542
+Planning Time: 1.621 ms
+Execution Time: 99.772 ms
 === R25 run 3 ===
-Sort  (cost=23341.79..23341.82 rows=12 width=49) (actual time=77.433..77.476 rows=9 loops=1)
+Sort  (cost=16909.68..16909.71 rows=12 width=49) (actual time=107.766..107.768 rows=9.00 loops=1)
   Sort Key: (round(avg((EXTRACT(epoch FROM ((min(m.sent_at) FILTER (WHERE (m.sender_id = l.seller_id))) - (min(m.sent_at) FILTER (WHERE (m.sender_id = t.buyer_id))))) / '60'::numeric)), 1))
   Sort Method: quicksort  Memory: 25kB
-  Buffers: shared hit=6654
-  ->  HashAggregate  (cost=23341.39..23341.57 rows=12 width=49) (actual time=77.412..77.458 rows=9 loops=1)
+  Buffers: shared hit=7006
+  ->  HashAggregate  (cost=16909.29..16909.47 rows=12 width=49) (actual time=107.745..107.750 rows=9.00 loops=1)
         Group Key: c.category_name
-        Batches: 1  Memory Usage: 24kB
-        Buffers: shared hit=6651
-        ->  Hash Join  (cost=8713.32..23267.56 rows=4922 width=25) (actual time=25.080..70.668 rows=19618 loops=1)
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=7003
+        ->  Hash Join  (cost=14970.49..16835.44 rows=4923 width=25) (actual time=97.046..102.300 rows=19618.00 loops=1)
               Hash Cond: (l.category_id = c.category_id)
-              Buffers: shared hit=6651
-              ->  GroupAggregate  (cost=8712.05..22226.05 rows=82034 width=22) (actual time=25.055..68.034 rows=19618 loops=1)
+              Buffers: shared hit=7003
+              ->  HashAggregate  (cost=14969.22..15793.79 rows=82045 width=22) (actual time=97.032..99.862 rows=19618.00 loops=1)
                     Group Key: t.thread_id, l.category_id
                     Filter: (min(m.sent_at) FILTER (WHERE (m.sender_id = l.seller_id)) IS NOT NULL)
+                    Batches: 1  Memory Usage: 2585kB
                     Rows Removed by Filter: 3912
-                    Buffers: shared hit=6650
-                    ->  Merge Join  (cost=8712.05..20164.90 rows=82446 width=26) (actual time=25.047..56.619 rows=82289 loops=1)
-                          Merge Cond: (t.thread_id = m.thread_id)
-                          Buffers: shared hit=6650
-                          ->  Gather Merge  (cost=8711.37..11454.38 rows=23552 width=14) (actual time=25.009..28.441 rows=23530 loops=1)
-                                Workers Planned: 2
-                                Workers Launched: 2
-                                Buffers: shared hit=5614
-                                ->  Sort  (cost=7711.34..7735.88 rows=9813 width=14) (actual time=22.155..22.724 rows=7843 loops=3)
-                                      Sort Key: t.thread_id, l.category_id
-                                      Sort Method: quicksort  Memory: 838kB
-                                      Buffers: shared hit=5614
-                                      Worker 0:  Sort Method: quicksort  Memory: 427kB
-                                      Worker 1:  Sort Method: quicksort  Memory: 424kB
-                                      ->  Hash Join  (cost=1424.59..7060.72 rows=9813 width=14) (actual time=7.200..20.686 rows=7843 loops=3)
-                                            Hash Cond: (l.listing_id = t.listing_id)
-                                            Buffers: shared hit=5528
-                                            ->  Parallel Seq Scan on listings l  (cost=0.00..4788.00 rows=50000 width=10) (actual time=0.009..3.820 rows=40000 loops=3)
-                                                  Buffers: shared hit=4288
-                                            ->  Hash  (cost=1130.19..1130.19 rows=23552 width=12) (actual time=7.120..7.120 rows=23530 loops=3)
-                                                  Buckets: 32768  Batches: 1  Memory Usage: 1268kB
-                                                  Buffers: shared hit=1146
-                                                  ->  Seq Scan on chat_threads t  (cost=0.00..1130.19 rows=23552 width=12) (actual time=0.045..4.633 rows=23530 loops=3)
-                                                        Filter: (created_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone)
-                                                        Rows Removed by Filter: 36325
-                                                        Buffers: shared hit=1146
-                          ->  Index Only Scan using idx_msgs_thread_sent on chat_messages m  (cost=0.42..7303.36 rows=209529 width=16) (actual time=0.029..13.807 rows=209523 loops=1)
-                                Heap Fetches: 0
-                                Buffers: shared hit=1036
-              ->  Hash  (cost=1.12..1.12 rows=12 width=11) (actual time=0.012..0.012 rows=12 loops=1)
+                    Buffers: shared hit=7002
+                    ->  Hash Join  (cost=8738.56..13732.37 rows=82457 width=26) (actual time=35.408..83.209 rows=82289.00 loops=1)
+                          Hash Cond: (t.listing_id = l.listing_id)
+                          Buffers: shared hit=7002
+                          ->  Hash Join  (cost=1424.62..6201.97 rows=82457 width=24) (actual time=6.003..37.997 rows=82289.00 loops=1)
+                                Hash Cond: (m.thread_id = t.thread_id)
+                                Buffers: shared hit=2514
+                                ->  Seq Scan on chat_messages m  (cost=0.00..4227.29 rows=209529 width=16) (actual time=0.005..9.882 rows=209529.00 loops=1)
+                                      Buffers: shared hit=2132
+                                ->  Hash  (cost=1130.19..1130.19 rows=23555 width=12) (actual time=5.969..5.969 rows=23530.00 loops=1)
+                                      Buckets: 32768  Batches: 1  Memory Usage: 1268kB
+                                      Buffers: shared hit=382
+                                      ->  Seq Scan on chat_threads t  (cost=0.00..1130.19 rows=23555 width=12) (actual time=0.006..3.821 rows=23530.00 loops=1)
+                                            Filter: (created_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone)
+                                            Rows Removed by Filter: 36325
+                                            Buffers: shared hit=382
+                          ->  Hash  (cost=5743.97..5743.97 rows=125597 width=10) (actual time=29.294..29.295 rows=120000.00 loops=1)
+                                Buckets: 131072  Batches: 1  Memory Usage: 6181kB
+                                Buffers: shared hit=4488
+                                ->  Seq Scan on listings l  (cost=0.00..5743.97 rows=125597 width=10) (actual time=0.008..19.419 rows=120000.00 loops=1)
+                                      Buffers: shared hit=4488
+              ->  Hash  (cost=1.12..1.12 rows=12 width=11) (actual time=0.009..0.010 rows=12.00 loops=1)
                     Buckets: 1024  Batches: 1  Memory Usage: 9kB
                     Buffers: shared hit=1
-                    ->  Seq Scan on categories c  (cost=0.00..1.12 rows=12 width=11) (actual time=0.004..0.006 rows=12 loops=1)
+                    ->  Seq Scan on categories c  (cost=0.00..1.12 rows=12 width=11) (actual time=0.004..0.005 rows=12.00 loops=1)
                           Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=523
-Planning Time: 1.839 ms
-Execution Time: 77.581 ms
+  Buffers: shared hit=542
+Planning Time: 1.628 ms
+Execution Time: 108.014 ms
